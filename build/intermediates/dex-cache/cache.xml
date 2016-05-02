@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="C:\Users\ckube\AndroidStudioProjects\CarParker\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="0f964dfd25fc747f7858865d9e4b0b074298ff5c">
+        <dex dex="C:\Users\ckube\AndroidStudioProjects\CarParker\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_a8dd9ceac8667c1d97c2a7ea49326a0baebbf5b6\classes.dex" />
+    </item>
+
+</items>
