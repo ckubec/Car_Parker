@@ -59,8 +59,8 @@ public class SignInActivity extends AppCompatActivity
                 outputStreamWriter.write("email = " + userId + ";");
                 outputStreamWriter.write("password = " + pwd);
                 outputStreamWriter.close();
-                Toast.makeText(this,"Stored in File Successfully!", Toast.LENGTH_LONG)
-                        .show();
+                //Toast.makeText(this,"Stored in File Successfully!", Toast.LENGTH_LONG)
+                       // .show();
             } catch (Exception e) {
                 e.printStackTrace();
             }
