@@ -11,5 +11,4 @@
     tools:context="authenticate.SignInActivity"
     android:id="@+id/fragment_container" >
 
-
 </FrameLayout>

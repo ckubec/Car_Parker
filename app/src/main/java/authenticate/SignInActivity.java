@@ -32,7 +32,7 @@ public class SignInActivity extends AppCompatActivity
                     .add(R.id.fragment_container, new LoginFragment())
                     .commit();
         } else {
-            Intent i = new Intent(this, MainActivityFragment.class);
+            Intent i = new Intent(this, MainActivity.class);
             startActivity(i);
             finish();
         }
