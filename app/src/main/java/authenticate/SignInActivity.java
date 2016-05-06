@@ -22,7 +22,6 @@ public class SignInActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setContentView(R.layout.fragment_login);
         setContentView(R.layout.activity_sign_in);
 
         mSharedPreferences = getSharedPreferences(getString(R.string.LOGIN_PREFS)
@@ -59,8 +58,6 @@ public class SignInActivity extends AppCompatActivity
                 outputStreamWriter.write("email = " + userId + ";");
                 outputStreamWriter.write("password = " + pwd);
                 outputStreamWriter.close();
-                //Toast.makeText(this,"Stored in File Successfully!", Toast.LENGTH_LONG)
-                       // .show();
             } catch (Exception e) {
                 e.printStackTrace();
             }

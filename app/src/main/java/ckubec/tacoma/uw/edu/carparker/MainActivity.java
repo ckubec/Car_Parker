@@ -58,4 +58,10 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    public void find(View view){
+        Intent i = new Intent(this, FindActivity.class);
+        startActivity(i);
+        finish();
+    }
 }

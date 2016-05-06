@@ -10,6 +10,8 @@
     <string name="password">Password</string>
     <string name="sign_up">Sign Up</string>
     <string name="login">Login</string>
+    <string name="find">Find</string>
+    <string name="back">Back</string>
 
     <string name="logout">Logout</string>
     <string name="title_activity_find">Map</string>
