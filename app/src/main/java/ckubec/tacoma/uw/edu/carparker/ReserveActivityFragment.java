@@ -1,3 +1,12 @@
+/**
+ * Chris Kubec
+ * Phillip Mishchuk
+ *
+ * ReserveActivityFragment.java
+ *
+ * This fragment shows up when you click the reserve a parking space.
+ */
+
 package ckubec.tacoma.uw.edu.carparker;
 
 import android.support.v4.app.Fragment;
@@ -11,9 +20,20 @@ import android.view.ViewGroup;
  */
 public class ReserveActivityFragment extends Fragment {
 
+    /**
+     * Place Holder method.
+     */
     public ReserveActivityFragment() {
     }
 
+    /**
+     * This is the onCreateView method. It creates the view.
+     *
+     * @param inflater The Inflater variable
+     * @param container The Container Variable
+     * @param savedInstanceState The Saved Instance State Variable
+     * @return Returns the view that is displayed on screen.
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

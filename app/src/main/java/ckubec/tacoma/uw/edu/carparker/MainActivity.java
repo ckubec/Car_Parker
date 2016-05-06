@@ -1,3 +1,12 @@
+/**
+ * Chris Kubec
+ * Phillip Mishchuk
+ *
+ * MainActivity.java
+ *
+ * This is the Main activity that goes in the main screen.
+ */
+
 package ckubec.tacoma.uw.edu.carparker;
 
 import android.content.Context;
@@ -16,6 +25,11 @@ import authenticate.SignInActivity;
 
 public class MainActivity extends AppCompatActivity {
 
+    /**
+     * This is the onCreate method.
+     *
+     * @param savedInstanceState This is the Saved Instance State variable.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,6 +39,12 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * This creates the options menu bar at the top right.
+     *
+     * @param menu The menu item.
+     * @return Returns the menu
+     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -32,6 +52,12 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
+    /**
+     * This method is for when an item in the options dropdown menu is selected.
+     *
+     * @param item The Item is the option that the user clicked.
+     * @return The item clicked.
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -59,18 +85,33 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    /**
+     * The method for fetching the find a parking space screen.
+     *
+     * @param view Return the find a parking space view.
+     */
     public void find(View view){
         Intent i = new Intent(this, FindActivity.class);
         startActivity(i);
         finish();
     }
 
+    /**
+     * The method for fetching the reserving screen.
+     *
+     * @param view Return the fetching the reserving a space view.
+     */
     public void reserve(View view){
         Intent j = new Intent(this, ReserveActivity.class);
         startActivity(j);
         finish();
     }
 
+    /**
+     * The method for fetching the free parking space screen.
+     *
+     * @param view Return the Free a parking space view.
+     */
     public void free(View view){
         Intent k = new Intent(this, FreeActivity.class);
         startActivity(k);

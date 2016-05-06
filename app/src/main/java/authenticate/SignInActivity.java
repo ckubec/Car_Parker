@@ -1,3 +1,12 @@
+/**
+ * Chris Kubec
+ * Phillip Mishchuk
+ *
+ * SingInActivity.java
+ *
+ * This is the fragment that shows up when you are logging in.
+ */
+
 package authenticate;
 
 import android.content.Context;
@@ -19,6 +28,11 @@ public class SignInActivity extends AppCompatActivity
         implements LoginFragment.LoginInteractionListener {
     private SharedPreferences mSharedPreferences;
 
+    /**
+     * This is the onCreate method.
+     *
+     * @param savedInstanceState This is the saved instance state variable.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +57,12 @@ public class SignInActivity extends AppCompatActivity
 
     }
 
+    /**
+     * This is the login method. It handles what is taken from the app (user and pass) and sends it off to be processed.
+     *
+     * @param userId The User ID parameter that holds what the user's ID is, in this case they log in with email.
+     * @param pwd This is the password that they input into the app.
+     */
     @Override
     public void login(String userId, String pwd) {
         ConnectivityManager connMgr = (ConnectivityManager)

@@ -1,3 +1,12 @@
+/**
+ * Chris Kubec
+ * Phillip Mishchuk
+ *
+ * LoginFragment.java
+ *
+ * This is the fragment that shows up when you are logging in.
+ */
+
 package authenticate;
 
 
@@ -19,12 +28,22 @@ import ckubec.tacoma.uw.edu.carparker.R;
  */
 public class LoginFragment extends Fragment {
 
-
+    /**
+     * This is the empty constructor for the login fragment.
+     */
     public LoginFragment() {
         // Required empty public constructor
     }
 
-
+    /**
+     * This is the method that creates the views that are displayed in the program.
+     * It also includes PHP code that handles logging in and out.
+     *
+     * @param inflater The Inflater variable
+     * @param container The Container Variable
+     * @param savedInstanceState The Saved Instance State Variable
+     * @return Returns the view that is displayed on screen.
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

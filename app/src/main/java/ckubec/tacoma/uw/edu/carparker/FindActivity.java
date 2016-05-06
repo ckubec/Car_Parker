@@ -1,3 +1,11 @@
+/**
+ * Chris Kubec
+ * Phillip Mishchuk
+ *
+ * FindActivity.java
+ *
+ * This activity shows up when you click the find a parking button.
+ */
 package ckubec.tacoma.uw.edu.carparker;
 
 import android.content.Intent;
@@ -17,6 +25,9 @@ public class FindActivity extends FragmentActivity implements OnMapReadyCallback
     private GoogleMap mMap;
 
     @Override
+    /**
+     * This is the onCreate method.
+     */
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_find);
@@ -36,6 +47,11 @@ public class FindActivity extends FragmentActivity implements OnMapReadyCallback
      * it inside the SupportMapFragment. This method will only be triggered once the user has
      * installed Google Play services and returned to the app.
      */
+    /**
+     * This method sets up the map
+     *
+     * @param googleMap This is the Google Map. This is what shows up when you click the button.
+     */
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
@@ -46,6 +62,11 @@ public class FindActivity extends FragmentActivity implements OnMapReadyCallback
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
     }
 
+    /**
+     * This method goes back to the back button. Basically moves the screen back.
+     *
+     * @param view This is the view that goes back.
+     */
     public void back(View view){
         Intent i = new Intent(this, MainActivity.class);
         startActivity(i);
