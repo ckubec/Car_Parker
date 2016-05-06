@@ -64,4 +64,16 @@ public class MainActivity extends AppCompatActivity {
         startActivity(i);
         finish();
     }
+
+    public void reserve(View view){
+        Intent j = new Intent(this, ReserveActivity.class);
+        startActivity(j);
+        finish();
+    }
+
+    public void free(View view){
+        Intent k = new Intent(this, FreeActivity.class);
+        startActivity(k);
+        finish();
+    }
 }

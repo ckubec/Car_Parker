@@ -19,11 +19,13 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/reserve_spot"/>
+        android:text="@string/reserve_spot"
+        android:onClick="reserve"/>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/free_spot"/>
+        android:text="@string/free_spot"
+        android:onClick="free"/>
 
 </LinearLayout>
