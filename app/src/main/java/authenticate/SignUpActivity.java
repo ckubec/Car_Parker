@@ -16,15 +16,17 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
 
 import java.io.OutputStreamWriter;
 
+import ckubec.tacoma.uw.edu.carparker.FreeActivity;
 import ckubec.tacoma.uw.edu.carparker.MainActivity;
 import ckubec.tacoma.uw.edu.carparker.MainActivityFragment;
 import ckubec.tacoma.uw.edu.carparker.R;
 
-public class SignInActivity extends AppCompatActivity
+public class SignUpActivity extends AppCompatActivity
         implements LoginFragment.LoginInteractionListener {
     private SharedPreferences mSharedPreferences;
 
@@ -95,6 +97,12 @@ public class SignInActivity extends AppCompatActivity
                 .commit();
         Intent i = new Intent(this, MainActivity.class);
         startActivity(i);
+        finish();
+    }
+
+    public void signUp(View view) {
+        Intent k = new Intent(this, SignUpActivity.class);
+        startActivity(k);
         finish();
     }
 }

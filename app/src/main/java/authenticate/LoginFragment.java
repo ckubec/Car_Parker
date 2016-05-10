@@ -87,12 +87,14 @@ public class LoginFragment extends Fragment {
                     return;
                 }
 
-                ((SignInActivity) getActivity()).login(userId, pwd);
+                ((SignUpActivity) getActivity()).login(userId, pwd);
             }
         });
 
         return v;
     }
+
+
 
 
     public interface LoginInteractionListener {
