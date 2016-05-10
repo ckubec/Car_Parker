@@ -18,14 +18,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    >
+    android:background="#2b536b">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <Button
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/back"
@@ -33,7 +33,7 @@
 
         <Button
             android:id="@+id/sydney"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="findPark"
             android:layout_weight="1"
@@ -41,10 +41,10 @@
 
         <Button
             android:id="@+id/bondi"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="reserve"
-            android:layout_weight="2"
+            android:layout_weight="1.45"
             android:text="@string/reserve_spot" />
     </LinearLayout>
 

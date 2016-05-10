@@ -8,24 +8,35 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="ckubec.tacoma.uw.edu.carparker.MainActivityFragment"
-    tools:showIn="@layout/activity_main">
+    tools:showIn="@layout/activity_main"
+    android:weightSum="1"
+    android:background="#2b536b">
+
+    <ImageView
+        android:layout_width="325dp"
+        android:layout_height="100dp"
+        android:id="@+id/imageView"
+        android:src="@drawable/logo" />
 
     <Button
-        android:layout_width="match_parent"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:text="@string/find_spot"
-        android:onClick="find" />
+        android:onClick="find"
+        android:layout_gravity="center_horizontal" />
 
     <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/reserve_spot"
-        android:onClick="reserve"/>
-
-    <Button
-        android:layout_width="match_parent"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:text="@string/free_spot"
-        android:onClick="free"/>
+        android:onClick="free"
+        android:layout_gravity="center_horizontal" />
+
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="@string/reserve_spot"
+        android:onClick="reserve"
+        android:layout_gravity="center_horizontal" />
 
 </LinearLayout>
