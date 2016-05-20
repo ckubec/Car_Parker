@@ -84,6 +84,24 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
+     * This method is for when you click the Settings on the menu item.
+     * @param mItem the menu item that is clicked.
+     */
+    public void settingsMenu(MenuItem mItem)
+    {
+
+    }
+
+    /**
+     * This method is for when you click the Settings on the menu item.
+     * @param mItem the menu item that is clicked.
+     */
+    public void aboutScreen(MenuItem mItem)
+    {
+
+    }
+
+    /**
      * The method for fetching the find a parking space screen.
      *
      * @param view Return the find a parking space view.

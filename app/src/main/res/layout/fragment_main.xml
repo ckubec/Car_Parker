@@ -10,7 +10,7 @@
     tools:context="ckubec.tacoma.uw.edu.carparker.MainActivityFragment"
     tools:showIn="@layout/activity_main"
     android:weightSum="1"
-    android:background="#2b536b">
+    android:background="#616161">
 
     <ImageView
         android:layout_width="325dp"

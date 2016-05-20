@@ -5,13 +5,13 @@
     android:layout_height="match_parent"
     android:layout_gravity="center_vertical"
     tools:context="authenticate.LoginFragment"
-    >
+    android:background="#616161">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center_vertical"
-        android:background="@color/background"
+        android:background="#616161"
         android:orientation="vertical">
 
         <EditText
@@ -71,7 +71,8 @@
             android:id="@+id/imageView"
             android:src="@drawable/logo"
             android:layout_above="@+id/username"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true"
+            android:background="#616161" />
 
     </RelativeLayout>
 
