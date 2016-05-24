@@ -4,19 +4,6 @@
     tools:context="ckubec.tacoma.uw.edu.carparker.MainActivity">
 
     <item
-        android:id="@+id/action_settings"
-        android:title="@string/action_settings"
-        app:showAsAction="never"
-        android:onClick="settingsMenu"/>
-
-    <item
-        android:id="@+id/action_about"
-        android:title="@string/action_about"
-        app:showAsAction="never"
-        android:onClick="aboutScreen"/>
-
-
-    <item
         android:id="@+id/action_logout"
         android:title="@string/logout"
         app:showAsAction="ifRoom" />

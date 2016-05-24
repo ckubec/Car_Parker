@@ -21,6 +21,13 @@
     <Button
         android:layout_width="150dp"
         android:layout_height="wrap_content"
+        android:text="@string/parkingListButton"
+        android:onClick="aboutScreen"
+        android:layout_gravity="center_horizontal" />
+
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
         android:text="@string/find_spot"
         android:onClick="find"
         android:layout_gravity="center_horizontal" />
@@ -38,5 +45,20 @@
         android:text="@string/reserve_spot"
         android:onClick="reserve"
         android:layout_gravity="center_horizontal" />
+
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="@string/settingsButton"
+        android:onClick="settingsMenu"
+        android:layout_gravity="center_horizontal" />
+
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="@string/aboutButton"
+        android:onClick="aboutScreen"
+        android:layout_gravity="center_horizontal" />
+
 
 </LinearLayout>

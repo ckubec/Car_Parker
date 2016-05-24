@@ -87,18 +87,22 @@ public class MainActivity extends AppCompatActivity {
      * This method is for when you click the Settings on the menu item.
      * @param mItem the menu item that is clicked.
      */
-    public void settingsMenu(MenuItem mItem)
+    public void settingsMenu(View view)
     {
-
+        Intent settings = new Intent(this, SettingsActivity.class);
+        startActivity(settings);
+        finish();
     }
 
     /**
      * This method is for when you click the Settings on the menu item.
      * @param mItem the menu item that is clicked.
      */
-    public void aboutScreen(MenuItem mItem)
+    public void aboutScreen(View view)
     {
-
+        Intent about = new Intent(this, AboutActivity.class);
+        startActivity(about);
+        finish();
     }
 
     /**
