@@ -9,7 +9,6 @@
 
 package authenticate;
 
-
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.TextUtils;
@@ -21,7 +20,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import ckubec.tacoma.uw.edu.carparker.R;
-
 
 /**
  * A simple {@link Fragment} subclass.
@@ -51,6 +49,7 @@ public class LoginFragment extends Fragment {
         View v =  inflater.inflate(R.layout.fragment_login, container, false);
         final EditText userIdText = (EditText) v.findViewById(R.id.username);
         final EditText pwdText = (EditText) v.findViewById(R.id.password);
+        Button signUp = (Button) v.findViewById(R.id.sign_up);
         Button signInButton = (Button) v.findViewById(R.id.sign_in);
         signInButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,13 +63,13 @@ public class LoginFragment extends Fragment {
                     userIdText.requestFocus();
                     return;
                 }
-                if (!userId.contains("@")) {
+                /*if (!userId.contains("@")) {
                     Toast.makeText(v.getContext(), "Enter a valid email address"
                             , Toast.LENGTH_SHORT)
                             .show();
                     userIdText.requestFocus();
                     return;
-                }
+                }*/
 
                 if (TextUtils.isEmpty(pwd))  {
                     Toast.makeText(v.getContext(), "Enter password"
