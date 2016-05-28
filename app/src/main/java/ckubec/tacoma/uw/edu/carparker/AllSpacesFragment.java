@@ -1,7 +1,12 @@
 package ckubec.tacoma.uw.edu.carparker;
 
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
@@ -9,9 +14,19 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
+
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 
 import ckubec.tacoma.uw.edu.carparker.dummy.DummyContent;
 import ckubec.tacoma.uw.edu.carparker.dummy.DummyContent.DummyItem;
+import ckubec.tacoma.uw.edu.carparker.model.Parking;
 
 /**
  * A fragment representing a list of Items.
@@ -21,11 +36,66 @@ import ckubec.tacoma.uw.edu.carparker.dummy.DummyContent.DummyItem;
  */
 public class AllSpacesFragment extends Fragment {
 
-    // TODO: Customize parameter argument names
     private static final String ARG_COLUMN_COUNT = "column-count";
-    // TODO: Customize parameters
     private int mColumnCount = 1;
     private OnListFragmentInteractionListener mListener;
+    public String COURSE_URL;
+
+    private List<Parking> mParkingList = new ArrayList<Parking>();
+
+    private RecyclerView mRecyclerView;
+
+    private class DownloadCoursesTask extends AsyncTask<String, Void, String> {
+        /**
+         * This is doInBackground method.
+         * @param urls
+         * @return responce
+         */
+        @Override
+        protected String doInBackground(String... urls) {
+            String response = "";
+            HttpURLConnection urlConnection = null;
+            for (String url : urls) {
+                try {
+                    URL urlObject = new URL(url);
+                    urlConnection = (HttpURLConnection) urlObject.openConnection();
+
+                    InputStream content = urlConnection.getInputStream();
+
+                    BufferedReader buffer = new BufferedReader(new InputStreamReader(content));
+                    String s = "";
+                    while ((s = buffer.readLine()) != null) {
+                        response += s;
+                    }
+
+                } catch (Exception e) {
+                    response = "Unable to download the list of parking lots, Reason: "
+                            + e.getMessage();
+                }
+                finally {
+                    if (urlConnection != null)
+                        urlConnection.disconnect();
+                }
+            }
+            return response;
+        }
+
+        /**
+         * This is onPostExecute method.
+         * @param result
+         */
+        @Override
+        protected void onPostExecute(String result) {
+
+            mParkingList = new ArrayList<Parking>();
+            result = Parking.parseParkingJSON(result, mParkingList);
+            // Everything is good, show the list of courses.
+            if (!mParkingList.isEmpty())
+            {
+                mRecyclerView.setAdapter(new MyAllSpacesRecyclerViewAdapter (mParkingList, mListener));
+            }
+        }
+    }
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -61,13 +131,45 @@ public class AllSpacesFragment extends Fragment {
         // Set the adapter
         if (view instanceof RecyclerView) {
             Context context = view.getContext();
-            RecyclerView recyclerView = (RecyclerView) view;
+            mRecyclerView = (RecyclerView) view;
             if (mColumnCount <= 1) {
-                recyclerView.setLayoutManager(new LinearLayoutManager(context));
+                mRecyclerView.setLayoutManager(new LinearLayoutManager(context));
             } else {
-                recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
+                mRecyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new MyAllSpacesRecyclerViewAdapter(DummyContent.ITEMS, mListener));
+            /*
+             *_____________________________________________________________________________
+             * Maybe delete this later if there are problems.
+             */
+            mRecyclerView.setAdapter(new MyAllSpacesRecyclerViewAdapter(DummyContent.ITEMS, mListener));
+
+            SharedPreferences prefs = this.getActivity().getSharedPreferences(getString(R.string.LOGIN_PREFS), Context.MODE_PRIVATE);
+            String lanSettings = prefs.getString("login", null);
+
+
+            //COURSE_URL = "http://cssgate.insttech.washington.edu/xxxxxx/listings.php?cmd=allCars&email="+ lanSettings;
+
+            DownloadCoursesTask task = new DownloadCoursesTask();
+            task.execute(new String[]{COURSE_URL});
+
+            FloatingActionButton floatingActionButton = (FloatingActionButton)
+                    getActivity().findViewById(R.id.fab);
+            floatingActionButton.show();
+
+            ConnectivityManager connMgr = (ConnectivityManager)
+                    getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
+            NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
+            if (networkInfo != null && networkInfo.isConnected()) {
+                task = new DownloadCoursesTask();
+                task.execute(new String[]{COURSE_URL});
+            }
+            else {
+                Toast.makeText(view.getContext(),
+                        "No network connection available. Displaying locally stored data",
+                        Toast.LENGTH_LONG) .show();
+
+                mRecyclerView.setAdapter(new MyAllSpacesRecyclerViewAdapter (mParkingList, mListener));
+            }
         }
         return view;
     }
