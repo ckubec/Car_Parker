@@ -137,4 +137,12 @@ public class MainActivity extends AppCompatActivity {
         startActivity(k);
         finish();
     }
+
+
+    public void ListAllSpaces(View view)
+    {
+        Intent i = new Intent(this, AllSpacesActivity.class);
+        startActivity(i);
+        finish();
+    }
 }

@@ -23,7 +23,15 @@
             android:onClick="aboutScreen"
             android:layout_gravity="center_horizontal" />-->
 
-        <Button
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="@string/parkingListButton"
+        android:onClick="ListAllSpaces"
+        android:id="@+id/btnAllSpots"
+        android:layout_gravity="center_horizontal" />
+
+    <Button
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:text="@string/find_spot"
