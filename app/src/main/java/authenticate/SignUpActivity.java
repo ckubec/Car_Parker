@@ -26,9 +26,8 @@ import ckubec.tacoma.uw.edu.carparker.MainActivity;
 import ckubec.tacoma.uw.edu.carparker.MainActivityFragment;
 import ckubec.tacoma.uw.edu.carparker.R;
 
-public class SignUpActivity extends AppCompatActivity
-        implements LoginFragment.LoginInteractionListener {
-    private SharedPreferences mSharedPreferences;
+public class SignUpActivity extends AppCompatActivity {
+    private String LOGIN_URL = "http://cssgate.insttech.washington.edu/~ckubec/addUser.php?";
 
     /**
      * This is the onCreate method.
@@ -40,65 +39,14 @@ public class SignUpActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
 
-        mSharedPreferences = getSharedPreferences(getString(R.string.LOGIN_PREFS)
-                , Context.MODE_PRIVATE);
-        if (!mSharedPreferences.getBoolean(getString(R.string.LOGGEDIN), false)) {
-            getSupportFragmentManager().beginTransaction()
-                    .add(R.id.fragment_container, new LoginFragment())
-                    .commit();
-        } else {
-            Intent i = new Intent(this, MainActivity.class);
-            startActivity(i);
-            finish();
-        }
 
 
-        getSupportFragmentManager().beginTransaction()
+        /*getSupportFragmentManager().beginTransaction()
                 .add(R.id.fragment_container, new LoginFragment() )
-                .commit();
+                .commit();*/
 
     }
 
-    /**
-     * This is the login method. It handles what is taken from the app (user and pass) and sends it off to be processed.
-     *
-     * @param userId The User ID parameter that holds what the user's ID is, in this case they log in with email.
-     * @param pwd This is the password that they input into the app.
-     */
-    @Override
-    public void login(String userId, String pwd) {
-        ConnectivityManager connMgr = (ConnectivityManager)
-                getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
-        if (networkInfo != null && networkInfo.isConnected()) {
-            //Check if the login and password are valid
-            //new LoginTask().execute(url);
-            try {
-                OutputStreamWriter outputStreamWriter = new OutputStreamWriter(
-                        openFileOutput(getString(R.string.LOGIN_FILE)
-                                , Context.MODE_PRIVATE));
-                outputStreamWriter.write("email = " + userId + ";");
-                outputStreamWriter.write("password = " + pwd);
-                outputStreamWriter.close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-
-        }
-        else {
-            Toast.makeText(this, "No network connection available. Cannot authenticate user",
-                    Toast.LENGTH_SHORT) .show();
-            return;
-        }
-
-        mSharedPreferences
-                .edit()
-                .putBoolean(getString(R.string.LOGGEDIN), true)
-                .commit();
-        Intent i = new Intent(this, MainActivity.class);
-        startActivity(i);
-        finish();
-    }
 
     public void signUp(View view) {
         Intent k = new Intent(this, SignUpActivity.class);

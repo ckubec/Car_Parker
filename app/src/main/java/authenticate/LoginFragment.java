@@ -25,6 +25,7 @@ import ckubec.tacoma.uw.edu.carparker.R;
  * A simple {@link Fragment} subclass.
  */
 public class LoginFragment extends Fragment {
+    private String LOGIN_URL = "http://cssgate.insttech.washington.edu/~ckubec/login.php?";
 
     /**
      * This is the empty constructor for the login fragment.
@@ -56,6 +57,7 @@ public class LoginFragment extends Fragment {
             public void onClick(View v) {
                 String userId = userIdText.getText().toString();
                 String pwd = pwdText.getText().toString();
+
                 if (TextUtils.isEmpty(userId))  {
                     Toast.makeText(v.getContext(), "Enter userid"
                             , Toast.LENGTH_SHORT)
@@ -63,13 +65,6 @@ public class LoginFragment extends Fragment {
                     userIdText.requestFocus();
                     return;
                 }
-                /*if (!userId.contains("@")) {
-                    Toast.makeText(v.getContext(), "Enter a valid email address"
-                            , Toast.LENGTH_SHORT)
-                            .show();
-                    userIdText.requestFocus();
-                    return;
-                }*/
 
                 if (TextUtils.isEmpty(pwd))  {
                     Toast.makeText(v.getContext(), "Enter password"
@@ -86,18 +81,24 @@ public class LoginFragment extends Fragment {
                     return;
                 }
 
-                ((SignUpActivity) getActivity()).login(userId, pwd);
+                ((LoginActivity) getActivity()).login(userId, pwd);
+            }
+        });
+
+        signUp.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                ((LoginActivity) getActivity()).signUpSwap();
             }
         });
 
         return v;
     }
 
-
-
-
+    /*
     public interface LoginInteractionListener {
         public void login(String userId, String pwd);
-    }
+    }*/
 
 }

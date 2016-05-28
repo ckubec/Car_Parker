@@ -21,8 +21,9 @@
             android:name=".MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar" />
+
         <activity
-            android:name="authenticate.SignUpActivity"
+            android:name="authenticate.LoginActivity"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -30,6 +31,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name="authenticate.SignUpActivity"
+            android:label="Car Parker">
+        </activity>
+
+
 
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
