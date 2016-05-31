@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
     {
         Intent settings = new Intent(this, SettingsActivity.class);
         startActivity(settings);
-        finish();
+        //finish();
     }
 
     /**
@@ -102,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
     {
         Intent about = new Intent(this, AboutActivity.class);
         startActivity(about);
-        finish();
+        //finish();
     }
 
     /**
@@ -113,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
     public void find(View view){
         Intent i = new Intent(this, FindActivity.class);
         startActivity(i);
-        finish();
+        //finish();
     }
 
     /**
@@ -124,7 +124,7 @@ public class MainActivity extends AppCompatActivity {
     public void reserve(View view){
         Intent j = new Intent(this, ReserveActivity.class);
         startActivity(j);
-        finish();
+        //finish();
     }
 
     /**
@@ -135,19 +135,19 @@ public class MainActivity extends AppCompatActivity {
     public void free(View view){
         Intent k = new Intent(this, FreeActivity.class);
         startActivity(k);
-        finish();
+        //finish();
     }
 
     public void sendAMessage(View view){
         Intent m = new Intent(this, SendSMSActivity.class);
         startActivity(m);
-        finish();
+        //finish();
     }
 
     public void ListAllSpaces(View view)
     {
         Intent i = new Intent(this, AllSpacesActivity.class);
         startActivity(i);
-        finish();
+        //finish();
     }
 }

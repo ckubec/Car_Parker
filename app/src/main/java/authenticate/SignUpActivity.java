@@ -9,7 +9,9 @@
 
 package authenticate;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -27,6 +29,7 @@ import ckubec.tacoma.uw.edu.carparker.R;
 
 public class SignUpActivity extends AppCompatActivity {
     private String SIGNUP_URL = "http://cssgate.insttech.washington.edu/~ckubec/Android/addUser.php?";
+    private String user;
 
     /**
      * This is the onCreate method.
@@ -41,7 +44,7 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
     public void signSubmit(View view) {
-        String user = ((EditText) findViewById(R.id.userI)).getText().toString();
+        user = ((EditText) findViewById(R.id.userI)).getText().toString();
         String pwd = ((EditText) findViewById(R.id.passwordI)).getText().toString();
         String fName = ((EditText) findViewById(R.id.fNameI)).getText().toString();
         String email = ((EditText) findViewById(R.id.emailI)).getText().toString();
@@ -109,13 +112,19 @@ public class SignUpActivity extends AppCompatActivity {
                         .show();
                 return;
             }
-            else if(resultSplit[0].equals("success")) {
-                complete();
+            else {
+                complete(user);
+                Toast.makeText(getApplicationContext(), "HELP Me Obi Wan1", Toast.LENGTH_SHORT).show();
             }
         }
     }
 
-    private void complete() {
+    private void complete(String theUser) {
+        Toast.makeText(getApplicationContext(), "HELP Me Obi Wan2", Toast.LENGTH_SHORT).show();
+        SharedPreferences sharedPreferences =
+                getSharedPreferences(getString(R.string.LOGIN_PREFS), Context.MODE_PRIVATE);
+        sharedPreferences.edit().putString(getString(R.string.login), theUser)
+                .commit();
         Intent i = new Intent(this, MainActivity.class);
         startActivity(i);
         finish();
