@@ -1,5 +1,6 @@
 package ckubec.tacoma.uw.edu.carparker;
 
+import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,19 +10,19 @@ import android.widget.TextView;
 import java.util.List;
 
 import ckubec.tacoma.uw.edu.carparker.AllSpacesFragment.OnListFragmentInteractionListener;
-import ckubec.tacoma.uw.edu.carparker.dummy.DummyContent.DummyItem;
+//import ckubec.tacoma.uw.edu.carparker.dummy.DummyContent.DummyItem;
+import ckubec.tacoma.uw.edu.carparker.model.Parking;
 
 /**
- * {@link RecyclerView.Adapter} that can display a {@link DummyItem} and makes a call to the
+ * {@link RecyclerView.Adapter} that can display a {@link //DummyItem} and makes a call to the
  * specified {@link OnListFragmentInteractionListener}.
- * TODO: Replace the implementation with code for your data type.
  */
 public class MyAllSpacesRecyclerViewAdapter extends RecyclerView.Adapter<MyAllSpacesRecyclerViewAdapter.ViewHolder> {
 
-    private final List<DummyItem> mValues;
+    private final List<Parking> mValues;
     private final OnListFragmentInteractionListener mListener;
 
-    public MyAllSpacesRecyclerViewAdapter(List<DummyItem> items, OnListFragmentInteractionListener listener) {
+    public MyAllSpacesRecyclerViewAdapter(List<Parking> items, OnListFragmentInteractionListener listener) {
         mValues = items;
         mListener = listener;
     }
@@ -35,9 +36,19 @@ public class MyAllSpacesRecyclerViewAdapter extends RecyclerView.Adapter<MyAllSp
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
-        holder.mItem = mValues.get(position);
-        holder.mIdView.setText(mValues.get(position).id);
-        holder.mContentView.setText(mValues.get(position).content);
+        /*
+         * //TODO EDIT OR REMOVE THIS LATER
+         */
+        if(position % 2 == 1) {
+            holder.itemView.setBackgroundColor(Color.rgb(213, 219, 228));
+        }
+        else {
+            holder.itemView.setBackgroundColor(Color.WHITE);
+        }
+
+        holder.mParking = mValues.get(position);
+        holder.mIdView.setText(mValues.get(position).getParkingLocation() + "\nNumber of Spots: " + mValues.get(position).getNumSpots() + "\nNumber of Taken Spots: " + mValues.get(position).getNumSpotsTaken());
+//        holder.mContentView.setText(mValues.get(position).content);
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,7 +56,8 @@ public class MyAllSpacesRecyclerViewAdapter extends RecyclerView.Adapter<MyAllSp
                 if (null != mListener) {
                     // Notify the active callbacks interface (the activity, if the
                     // fragment is attached to one) that an item has been selected.
-                    mListener.onListFragmentInteraction(holder.mItem);
+                    holder.mParking.setAllSpacesFragment("All_Spaces");
+                    mListener.onListFragmentInteraction(holder.mParking);
                 }
             }
         });
@@ -59,19 +71,20 @@ public class MyAllSpacesRecyclerViewAdapter extends RecyclerView.Adapter<MyAllSp
     public class ViewHolder extends RecyclerView.ViewHolder {
         public final View mView;
         public final TextView mIdView;
-        public final TextView mContentView;
-        public DummyItem mItem;
+//        public final TextView mContentView;
+
+        public Parking mParking;
 
         public ViewHolder(View view) {
             super(view);
             mView = view;
-            mIdView = (TextView) view.findViewById(R.id.id);
-            mContentView = (TextView) view.findViewById(R.id.content);
+            mIdView = (TextView) view.findViewById(R.id.allspaceslist);
+//            mContentView = (TextView) view.findViewById(R.id.content);
         }
 
         @Override
         public String toString() {
-            return super.toString() + " '" + mContentView.getText() + "'";
+            return super.toString() + " '" + mIdView.getText() + "'";
         }
     }
 }
