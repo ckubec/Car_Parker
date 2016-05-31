@@ -24,8 +24,6 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-import ckubec.tacoma.uw.edu.carparker.dummy.DummyContent;
-import ckubec.tacoma.uw.edu.carparker.dummy.DummyContent.DummyItem;
 import ckubec.tacoma.uw.edu.carparker.model.Parking;
 
 /**
@@ -141,7 +139,7 @@ public class AllSpacesFragment extends Fragment {
              *_____________________________________________________________________________
              * Maybe delete this later if there are problems.
              */
-            mRecyclerView.setAdapter(new MyAllSpacesRecyclerViewAdapter(DummyContent.ITEMS, mListener));
+            mRecyclerView.setAdapter(new MyAllSpacesRecyclerViewAdapter(mParkingList, mListener));
 
             SharedPreferences prefs = this.getActivity().getSharedPreferences(getString(R.string.LOGIN_PREFS), Context.MODE_PRIVATE);
             String lanSettings = prefs.getString("login", null);
@@ -204,6 +202,6 @@ public class AllSpacesFragment extends Fragment {
      */
     public interface OnListFragmentInteractionListener {
         // TODO: Update argument type and name
-        void onListFragmentInteraction(DummyItem item);
+        void onListFragmentInteraction(Parking item);
     }
 }
