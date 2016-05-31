@@ -73,4 +73,11 @@
             android:onClick="aboutScreen"
             android:layout_gravity="center_horizontal" />
 
+        <Button
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="Tell a Friend"
+            android:onClick="sendAMessage"
+            android:layout_gravity="center_horizontal" />
+
 </LinearLayout>

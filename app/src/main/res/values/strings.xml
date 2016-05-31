@@ -16,6 +16,7 @@
     <string name="aboutButton">About</string>
     <string name="parkingListButton">List All Spots</string>
 
+
     <string name="logout">Logout</string>
     <string name="title_activity_find">Map</string>
 
@@ -31,4 +32,5 @@
     <string name="title_activity_free">FreeActivity</string>
     <string name="title_activity_settings">SettingsActivity</string>
     <string name="title_activity_about">AboutActivity</string>
+    <string name="title_activity_sendMessage">SendAMessage</string>
 </resources>
