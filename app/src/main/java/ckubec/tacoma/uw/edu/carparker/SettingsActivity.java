@@ -1,5 +1,6 @@
 package ckubec.tacoma.uw.edu.carparker;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -9,11 +10,13 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.Toast;
 
 import authenticate.LoginActivity;
 import authenticate.SignUpActivity;
 
 public class SettingsActivity extends AppCompatActivity {
+    int backpress = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,5 +43,14 @@ public class SettingsActivity extends AppCompatActivity {
         Intent i = new Intent(this, LoginActivity.class);
         startActivity(i);
         finish();
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+
+        Intent i = new Intent(this, MainActivity.class);
+        startActivity(i);
+        //finish();
     }
 }

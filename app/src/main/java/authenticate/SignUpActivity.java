@@ -14,16 +14,15 @@ import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+import ckubec.tacoma.uw.edu.carparker.MainActivity;
 import ckubec.tacoma.uw.edu.carparker.R;
 
 public class SignUpActivity extends AppCompatActivity {
@@ -39,21 +38,17 @@ public class SignUpActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
 
-
-
     }
 
     public void signSubmit(View view) {
         String user = ((EditText) findViewById(R.id.userI)).getText().toString();
         String pwd = ((EditText) findViewById(R.id.passwordI)).getText().toString();
-        String name = ((EditText) findViewById(R.id.nameI)).getText().toString();
+        String fName = ((EditText) findViewById(R.id.fNameI)).getText().toString();
         String email = ((EditText) findViewById(R.id.emailI)).getText().toString();
 
         SignUpTask task = new SignUpTask();
-        Toast.makeText(getApplicationContext(), SIGNUP_URL +"&user="+ user +"&pwd="+ pwd +"&name="+ name +"&email="+ email, Toast.LENGTH_LONG)
-                .show();
 
-        task.execute(new String[]{SIGNUP_URL +"&user="+ user +"&pwd="+ pwd +"&name="+ name +"&email="+ email });
+        task.execute(new String[]{SIGNUP_URL +"&user="+ user +"&pwd="+ pwd +"&name="+ fName.replaceAll(" ", "%20") +"&email="+ email });
 
 
     }
@@ -110,8 +105,8 @@ public class SignUpActivity extends AppCompatActivity {
             resultSplit = resultSplit[1].split("\", \"");
             // Something wrong with the network or the URL.
             if (resultSplit[0].equals("fail")) {
-                //Toast.makeText(getApplicationContext(), "Error" + resultSplit[0]+ ",," + resultSplit[1], Toast.LENGTH_LONG)
-                        //.show();
+                Toast.makeText(getApplicationContext(), "Error" + resultSplit[0]+ ",," + resultSplit[1], Toast.LENGTH_LONG)
+                        .show();
                 return;
             }
             else if(resultSplit[0].equals("success")) {
@@ -121,7 +116,7 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
     private void complete() {
-        Intent i = new Intent(this, LoginActivity.class);
+        Intent i = new Intent(this, MainActivity.class);
         startActivity(i);
         finish();
     }

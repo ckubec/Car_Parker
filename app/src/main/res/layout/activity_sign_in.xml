@@ -20,8 +20,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
-            android:hint="First and Last Name"
-            android:id="@+id/nameI" />
+            android:hint="First Name"
+            android:id="@+id/fNameI" />
 
         <EditText
             android:layout_width="match_parent"

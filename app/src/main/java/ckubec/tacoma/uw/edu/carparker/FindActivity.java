@@ -43,6 +43,15 @@ public class FindActivity extends FragmentActivity implements OnMapReadyCallback
         mapFragment.getMapAsync(this);
     }
 
+    @Override
+    public void onBackPressed()
+    {
+        /*if ( ! getIntent().getExtras().getBoolean())
+            moveTaskToBack(true); // exist app
+        else*/
+            finish();
+    }
+
 
     /**
      * Manipulates the map once available.
@@ -89,6 +98,8 @@ public class FindActivity extends FragmentActivity implements OnMapReadyCallback
                         new LatLng(47.24413029, -122.43772924),
                         new LatLng(47.24297219, -122.43783653),
                         new LatLng(47.24291028, -122.43843734));
+
+
 
 // Get back the mutable Polygon
         Polygon polygon = mMap.addPolygon(rectOptions);
