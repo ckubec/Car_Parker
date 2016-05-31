@@ -90,7 +90,7 @@ public class AllSpacesFragment extends Fragment {
             // Everything is good, show the list of courses.
             if (!mParkingList.isEmpty())
             {
-                mRecyclerView.setAdapter(new MyAllSpacesRecyclerViewAdapter (mParkingList, mListener));
+                //mRecyclerView.setAdapter(new MyAllSpacesRecyclerViewAdapter (mParkingList, mListener));
             }
         }
     }
@@ -166,7 +166,7 @@ public class AllSpacesFragment extends Fragment {
                         "No network connection available. Displaying locally stored data",
                         Toast.LENGTH_LONG) .show();
 
-                mRecyclerView.setAdapter(new MyAllSpacesRecyclerViewAdapter (mParkingList, mListener));
+                //mRecyclerView.setAdapter(new MyAllSpacesRecyclerViewAdapter (mParkingList, mListener));
             }
         }
         return view;
