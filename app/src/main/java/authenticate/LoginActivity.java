@@ -118,7 +118,7 @@ public class LoginActivity extends AppCompatActivity {
                     }
 
                 } catch (Exception e) {
-                    response = "Unable to download the list of cars, Reason: "
+                    response = "Unable to reach Login Server: "
                             + e.getMessage();
                 }
                 finally {

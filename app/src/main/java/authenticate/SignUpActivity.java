@@ -9,25 +9,25 @@
 
 package authenticate;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
-import java.io.OutputStreamWriter;
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
-import ckubec.tacoma.uw.edu.carparker.FreeActivity;
-import ckubec.tacoma.uw.edu.carparker.MainActivity;
-import ckubec.tacoma.uw.edu.carparker.MainActivityFragment;
 import ckubec.tacoma.uw.edu.carparker.R;
 
 public class SignUpActivity extends AppCompatActivity {
-    private String LOGIN_URL = "http://cssgate.insttech.washington.edu/~ckubec/addUser.php?";
+    private String SIGNUP_URL = "http://cssgate.insttech.washington.edu/~ckubec/Android/addUser.php?";
 
     /**
      * This is the onCreate method.
@@ -41,9 +41,20 @@ public class SignUpActivity extends AppCompatActivity {
 
 
 
-        /*getSupportFragmentManager().beginTransaction()
-                .add(R.id.fragment_container, new LoginFragment() )
-                .commit();*/
+    }
+
+    public void signSubmit(View view) {
+        String user = ((EditText) findViewById(R.id.userI)).getText().toString();
+        String pwd = ((EditText) findViewById(R.id.passwordI)).getText().toString();
+        String name = ((EditText) findViewById(R.id.nameI)).getText().toString();
+        String email = ((EditText) findViewById(R.id.emailI)).getText().toString();
+
+        SignUpTask task = new SignUpTask();
+        Toast.makeText(getApplicationContext(), SIGNUP_URL +"&user="+ user +"&pwd="+ pwd +"&name="+ name +"&email="+ email, Toast.LENGTH_LONG)
+                .show();
+
+        task.execute(new String[]{SIGNUP_URL +"&user="+ user +"&pwd="+ pwd +"&name="+ name +"&email="+ email });
+
 
     }
 
@@ -51,6 +62,67 @@ public class SignUpActivity extends AppCompatActivity {
     public void signUp(View view) {
         Intent k = new Intent(this, SignUpActivity.class);
         startActivity(k);
+        finish();
+    }
+
+    private class SignUpTask extends AsyncTask<String, Void, String> {
+        /**
+         * This is doInBackground method.
+         * @param urls
+         * @return responce of the method.
+         */
+        @Override
+        protected String doInBackground(String... urls) {
+            String response = "";
+            HttpURLConnection urlConnection = null;
+            for (String url : urls) {
+                try {
+                    URL urlObject = new URL(url);
+                    urlConnection = (HttpURLConnection) urlObject.openConnection();
+
+                    InputStream content = urlConnection.getInputStream();
+
+                    BufferedReader buffer = new BufferedReader(new InputStreamReader(content));
+                    String s = "";
+                    while ((s = buffer.readLine()) != null) {
+                        response += s;
+                    }
+
+                } catch (Exception e) {
+                    response = "Unable to reach Login Server: "
+                            + e.getMessage();
+                }
+                finally {
+                    if (urlConnection != null)
+                        urlConnection.disconnect();
+                }
+            }
+            return response;
+        }
+        /**
+         * This is onPostExecute method.
+         * @param result
+         */
+        @Override
+        protected void onPostExecute(String result) {
+            //parsing the json
+            String[] resultSplit = result.split("\"result\": \"");
+            resultSplit = resultSplit[1].split("\", \"");
+            // Something wrong with the network or the URL.
+            if (resultSplit[0].equals("fail")) {
+                //Toast.makeText(getApplicationContext(), "Error" + resultSplit[0]+ ",," + resultSplit[1], Toast.LENGTH_LONG)
+                        //.show();
+                return;
+            }
+            else if(resultSplit[0].equals("success")) {
+                complete();
+            }
+        }
+    }
+
+    private void complete() {
+        Intent i = new Intent(this, LoginActivity.class);
+        startActivity(i);
         finish();
     }
 }
