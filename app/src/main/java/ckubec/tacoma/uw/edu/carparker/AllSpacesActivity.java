@@ -22,20 +22,20 @@ public class AllSpacesActivity extends AppCompatActivity {
 
         }
 
-         @Override
-         public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                  Bundle savedInstanceState) {
+        @Override
+        public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                                 Bundle savedInstanceState) {
 
-             View rootView = inflater.inflate(R.layout.fragment_allspaces, container, false);
+            View rootView = inflater.inflate(R.layout.fragment_allspaces, container, false);
 
-             Button btnAllSpots = (Button)rootView.findViewById(R.id.btnAllSpots);
+            Button btnAllSpots = (Button)rootView.findViewById(R.id.btnAllSpots);
 //             btnAllSpots.setOnClickListener(new View.OnClickListener() {
 //                 @Override
 //                 public void onClick(View v) {
 //                 }
 //             });
-             return rootView;
-         }
+            return rootView;
+        }
     }
 
     /**
