@@ -19,7 +19,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import authenticate.SignUpActivity;
-import ckubec.tacoma.uw.edu.carparker.model.SendSMSActivity;
+import ckubec.tacoma.uw.edu.carparker.model.SendTextActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -139,7 +139,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void sendAMessage(View view){
-        Intent m = new Intent(this, SendSMSActivity.class);
+        Intent m = new Intent(this, SendTextActivity.class);
         startActivity(m);
         //finish();
     }
