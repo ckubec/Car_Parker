@@ -9,9 +9,13 @@
 package ckubec.tacoma.uw.edu.carparker;
 
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.widget.Toast;
 
@@ -79,6 +83,7 @@ public class FindActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
+        mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
 
         final LatLngBounds TACOMA = LatLngBounds.builder()
                 .include(new LatLng(47.2409, -122.444859))
@@ -135,7 +140,7 @@ public class FindActivity extends FragmentActivity implements OnMapReadyCallback
 
 
 
-        polygon2.setFillColor(-16777216);
+        polygon2.setFillColor(Color.parseColor("#90A9A9A9"));
         polygon.setClickable(true);
         polygon1.setClickable(true);
         polygon1.setFillColor(255);
@@ -148,14 +153,11 @@ public class FindActivity extends FragmentActivity implements OnMapReadyCallback
                 Toast.makeText(getApplicationContext(), "TEXT HERE" + polygon.toString()
                         , Toast.LENGTH_SHORT)
                         .show();
+
+
             }
         });
 
-
-
-                /*new LatLngBounds(
-                new LatLng(47.2409, -122.444859
-                ), new LatLng(47.252903, -122.434559));*/
 
         mMap.moveCamera(CameraUpdateFactory.newLatLngBounds(TACOMA, 0));
 
@@ -163,13 +165,19 @@ public class FindActivity extends FragmentActivity implements OnMapReadyCallback
 
             @Override
             public void onCameraChange(CameraPosition arg0) {
-                Toast.makeText(getApplicationContext(), "TEXT HERE BS : " + arg0.target, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(), "TEXT HERE BS : " + arg0.zoom, Toast.LENGTH_SHORT).show();
 
                 if(TACOMA.northeast.latitude < arg0.target.latitude
                         || TACOMA.northeast.longitude < arg0.target.longitude
                         || TACOMA.southwest.latitude > arg0.target.latitude
                         || TACOMA.southwest.longitude > arg0.target.longitude) {
                     mMap.moveCamera(CameraUpdateFactory.newLatLngBounds(new LatLngBounds(new LatLng(47.2409, -122.444859), new LatLng(47.252903, -122.434559)), 15));
+                }
+
+                if(arg0.zoom < 15){
+
+                } else if (arg0.zoom > 20) {
+
                 }
 
                 //mMap.setOnCameraChangeListener(null);
@@ -179,8 +187,14 @@ public class FindActivity extends FragmentActivity implements OnMapReadyCallback
 
 
 
-        mMap.setPadding(30, 30, 30, 30);
-
+        //mMap.setPadding(30, 30, 30, 30);
+        ActivityCompat.requestPermissions(this,new String[]{"android.permission.ACCESS_FINE_LOCATION"},1);
+        if (ContextCompat.checkSelfPermission(this, "android.permission.ACCESS_FINE_LOCATION")
+                == PackageManager.PERMISSION_GRANTED) {
+            mMap.setMyLocationEnabled(true);
+        } else {
+            Toast.makeText(getApplicationContext(), "Permission Denied", Toast.LENGTH_SHORT).show();
+        }
 
         //mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(tacoma, 16));
     }
