@@ -9,6 +9,7 @@
 package ckubec.tacoma.uw.edu.carparker;
 
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -20,11 +21,19 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.UiSettings;
+import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.Polygon;
 import com.google.android.gms.maps.model.PolygonOptions;
 import com.google.android.gms.maps.model.PolylineOptions;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
+import java.util.ListIterator;
 
 public class FindActivity extends FragmentActivity implements OnMapReadyCallback {
 
@@ -71,39 +80,67 @@ public class FindActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-       /* mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(
-                new LatLng(-18.142, 178.431), 2));
-
-        // Polylines are useful for marking paths and routes on the map.
-        mMap.addPolyline(new PolylineOptions().geodesic(true)
-                .add(new LatLng(-33.866, 151.195))  // Sydney
-                .add(new LatLng(-18.142, 178.431))  // Fiji
-                .add(new LatLng(21.291, -157.821))  // Hawaii
-                .add(new LatLng(37.423, -122.091))  // Mountain View
-        );*/
+        final LatLngBounds TACOMA = LatLngBounds.builder()
+                .include(new LatLng(47.2409, -122.444859))
+                .include(new LatLng(47.252903, -122.434559))
+                .build();
 
         // Add a marker in Tacoma and move the camera
-        LatLng sydney = new LatLng(47.24323076, -122.43845344);
-        //mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        //mMap.getUiSettings().setZoomControlsEnabled(true);
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
-        //CameraUpdate zoom=CameraUpdateFactory.zoomTo(15);
-        mMap.animateCamera(CameraUpdateFactory.zoomTo(16));
-
-
+        LatLng tacoma = new LatLng(47.2447187, -122.43925539999998);//The Swiss
 
         // Instantiates a new Polygon object and adds points to define a rectangle
         PolygonOptions rectOptions = new PolygonOptions()
-                .add(new LatLng(47.24418492, -122.43816376),
-                        new LatLng(47.24413029, -122.43772924),
-                        new LatLng(47.24297219, -122.43783653),
-                        new LatLng(47.24291028, -122.43843734));
+                .add(new LatLng(47.244032, -122.438185),
+                        new LatLng(47.24409, -122.437445),
+                        new LatLng(47.243071, -122.437649),
+                        new LatLng(47.243012, -122.438464));
+
+        PolygonOptions rect2 = new PolygonOptions()
+                .add(new LatLng(47.244352, -122.438979),
+                        new LatLng(47.244236, -122.4384),
+                        new LatLng(47.24299, -122.438636),
+                        new LatLng(47.242881, -122.439119));
+
+        PolygonOptions rect3 = new PolygonOptions()
+                .add(new LatLng(60,-150),
+                        new LatLng(60, 0),
+                        new LatLng(0, 0),
+                        new LatLng(0, -150));
+
+        rect3.fillColor(-16777216);
+        ArrayList<LatLng> list = new ArrayList<>();
+        list.add(new LatLng(TACOMA.northeast.latitude, TACOMA.southwest.longitude));
+        list.add(new LatLng(TACOMA.northeast.latitude, TACOMA.northeast.longitude));
+        list.add(new LatLng(TACOMA.southwest.latitude, TACOMA.northeast.longitude));
+        list.add(new LatLng(TACOMA.southwest.latitude, TACOMA.southwest.longitude));
+        PolygonOptions polygonOptions = rect3.addHole(list);
+
+
+
+
+        /*.add(new LatLng(TACOMA.northeast.latitude, TACOMA.southwest.longitude),
+                        new LatLng(TACOMA.northeast.latitude, TACOMA.northeast.longitude),
+                        new LatLng(TACOMA.southwest.latitude, TACOMA.northeast.longitude),
+                        new LatLng(TACOMA.southwest.latitude, TACOMA.southwest.longitude));*/
+
+
 
 
 
 // Get back the mutable Polygon
-        Polygon polygon = mMap.addPolygon(rectOptions);
+        final Polygon polygon = mMap.addPolygon(rectOptions);
+        Polygon polygon1 = mMap.addPolygon(rect2);
+        Polygon polygon2 = mMap.addPolygon(rect3);
+        polygon2.setGeodesic(true);
+
+
+
+        polygon2.setFillColor(-16777216);
         polygon.setClickable(true);
+        polygon1.setClickable(true);
+        polygon1.setFillColor(255);
+
+
 
         mMap.setOnPolygonClickListener(new GoogleMap.OnPolygonClickListener() {
             @Override
@@ -114,6 +151,38 @@ public class FindActivity extends FragmentActivity implements OnMapReadyCallback
             }
         });
 
+
+
+                /*new LatLngBounds(
+                new LatLng(47.2409, -122.444859
+                ), new LatLng(47.252903, -122.434559));*/
+
+        mMap.moveCamera(CameraUpdateFactory.newLatLngBounds(TACOMA, 0));
+
+        mMap.setOnCameraChangeListener(new GoogleMap.OnCameraChangeListener() {
+
+            @Override
+            public void onCameraChange(CameraPosition arg0) {
+                Toast.makeText(getApplicationContext(), "TEXT HERE BS : " + arg0.target, Toast.LENGTH_SHORT).show();
+
+                if(TACOMA.northeast.latitude < arg0.target.latitude
+                        || TACOMA.northeast.longitude < arg0.target.longitude
+                        || TACOMA.southwest.latitude > arg0.target.latitude
+                        || TACOMA.southwest.longitude > arg0.target.longitude) {
+                    mMap.moveCamera(CameraUpdateFactory.newLatLngBounds(new LatLngBounds(new LatLng(47.2409, -122.444859), new LatLng(47.252903, -122.434559)), 15));
+                }
+
+                //mMap.setOnCameraChangeListener(null);
+
+            }
+        });
+
+
+
+        mMap.setPadding(30, 30, 30, 30);
+
+
+        //mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(tacoma, 16));
     }
 
     /**
