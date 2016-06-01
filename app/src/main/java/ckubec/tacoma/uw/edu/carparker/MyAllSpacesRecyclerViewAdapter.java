@@ -30,7 +30,7 @@ public class MyAllSpacesRecyclerViewAdapter extends RecyclerView.Adapter<MyAllSp
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.fragment_allspaces, parent, false);
+                .inflate(R.layout.fragment_allspaces, parent, false);  //????
         return new ViewHolder(view);
     }
 

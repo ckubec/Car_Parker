@@ -142,10 +142,9 @@ public class AllSpacesFragment extends Fragment {
             mRecyclerView.setAdapter(new MyAllSpacesRecyclerViewAdapter(mParkingList, mListener));
 
             SharedPreferences prefs = this.getActivity().getSharedPreferences(getString(R.string.LOGIN_PREFS), Context.MODE_PRIVATE);
-            String lanSettings = prefs.getString("login", null);
 
 
-            //COURSE_URL = "http://cssgate.insttech.washington.edu/ckubec/listings.php?cmd=allCars&email="+ lanSettings;
+            COURSE_URL = "http://cssgate.insttech.washington.edu/ckubec/listings.php";
 
             DownloadCoursesTask task = new DownloadCoursesTask();
             task.execute(new String[]{COURSE_URL});

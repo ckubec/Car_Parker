@@ -18,6 +18,12 @@ allprojects {
     }
 }
 
+//this might need to be re enabled.
+//testOptions {
+//    unitTests.returnDefaultValues = true
+//}
+
+
 task clean(type: Delete) {
     delete rootProject.buildDir
 }

@@ -12,22 +12,26 @@ import android.widget.Toast;
 import ckubec.tacoma.uw.edu.carparker.Manifest;
 import ckubec.tacoma.uw.edu.carparker.R;
 
-public class SendSMSActivity extends Activity {
+public class SendTextActivity extends Activity {
 
-    Button sendSMSBtn;
-    EditText toPhoneNumberET;
-    EditText smsMessageET;
+    Button sendText;
+    EditText destination;
+    EditText msgText;
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
+        //asking for permissions
         ActivityCompat.requestPermissions(this,new String[]{"android.permission.SEND_SMS"},1);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sms);
-        sendSMSBtn = (Button) findViewById(R.id.sendSMSBtn);
-        toPhoneNumberET = (EditText) findViewById(R.id.toPhoneNumberET);
-        smsMessageET = (EditText) findViewById(R.id.smsMessageET);
-        sendSMSBtn.setOnClickListener(new View.OnClickListener() {
+
+        sendText = (Button) findViewById(R.id.sendTextBtn);
+        destination = (EditText) findViewById(R.id.toPhoneNumberET);
+        msgText = (EditText) findViewById(R.id.smsMessageET);
+        sendText.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 sendSMS();
             }
@@ -36,8 +40,8 @@ public class SendSMSActivity extends Activity {
 
     protected void sendSMS() {
 
-        String toPhoneNumber = toPhoneNumberET.getText().toString();
-        String smsMessage = smsMessageET.getText().toString();
+        String toPhoneNumber = destination.getText().toString();
+        String smsMessage = msgText.getText().toString();
         try {
             SmsManager smsManager = SmsManager.getDefault();
             smsManager.sendTextMessage(toPhoneNumber, null, smsMessage, null, null);
