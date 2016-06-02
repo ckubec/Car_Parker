@@ -2,7 +2,7 @@
  * Chris Kubec
  * Phillip Mishchuk
  *
- * SingInActivity.java
+ * SignUpActivity.java
  *
  * This is the fragment that shows up when you are logging in.
  */

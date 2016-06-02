@@ -13,11 +13,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
-
 import authenticate.SignUpActivity;
 import ckubec.tacoma.uw.edu.carparker.model.SendTextActivity;
 
@@ -133,6 +133,14 @@ public class MainActivity extends AppCompatActivity {
      * @param view Return the Free a parking space view.
      */
     public void free(View view){
+        /*DialogFragment fragment = null;
+
+        fragment = new CustomDialogFragment();
+
+        if (fragment != null)
+            fragment.show(getSupportFragmentManager(), "launch");*/
+
+        //Toast.makeText(getApplicationContext(), "", Toast.LENGTH_SHORT).show();
         Intent k = new Intent(this, FreeActivity.class);
         startActivity(k);
         //finish();
