@@ -13,6 +13,7 @@ import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
@@ -99,18 +100,40 @@ public class FindActivity extends FragmentActivity implements OnMapReadyCallback
                         new LatLng(47.24409, -122.437445),
                         new LatLng(47.243071, -122.437649),
                         new LatLng(47.243012, -122.438464));
+        rectOptions.fillColor(Color.parseColor("#905DFC0A"));
+        rectOptions.strokeColor(Color.RED);
 
         PolygonOptions rect2 = new PolygonOptions()
                 .add(new LatLng(47.244352, -122.438979),
                         new LatLng(47.244236, -122.4384),
                         new LatLng(47.24299, -122.438636),
                         new LatLng(47.242881, -122.439119));
+        rect2.fillColor(Color.parseColor("#90FFFF00"));
+        rect2.strokeColor(Color.RED);
 
         PolygonOptions rect3 = new PolygonOptions()
                 .add(new LatLng(60,-150),
                         new LatLng(60, 0),
                         new LatLng(0, 0),
                         new LatLng(0, -150));
+
+        PolygonOptions rect4 = new PolygonOptions()
+                .add(new LatLng(47.244768,-122.439805),
+                        new LatLng(47.244768, -122.439505),
+                        new LatLng(47.243799, -122.43928),
+                        new LatLng(47.243719, -122.439526));
+        rect4.fillColor(Color.parseColor("#90FFFF00"));
+        rect4.strokeColor(Color.YELLOW);
+
+
+        PolygonOptions rect5 = new PolygonOptions()
+                .add(new LatLng(47.246736,-122.440921),
+                        new LatLng(47.246756, -122.440739),
+                        new LatLng(47.244856, -122.44031),
+                        new LatLng(47.244845, -122.440465));
+        rect5.fillColor(Color.parseColor("#90FF0000"));
+        rect5.strokeColor(Color.GREEN);
+
 
         rect3.fillColor(-16777216);
         ArrayList<LatLng> list = new ArrayList<>();
@@ -136,6 +159,8 @@ public class FindActivity extends FragmentActivity implements OnMapReadyCallback
         final Polygon polygon = mMap.addPolygon(rectOptions);
         Polygon polygon1 = mMap.addPolygon(rect2);
         Polygon polygon2 = mMap.addPolygon(rect3);
+        mMap.addPolygon(rect4);
+        mMap.addPolygon(rect5);
         polygon2.setGeodesic(true);
 
 
@@ -143,18 +168,22 @@ public class FindActivity extends FragmentActivity implements OnMapReadyCallback
         polygon2.setFillColor(Color.parseColor("#90A9A9A9"));
         polygon.setClickable(true);
         polygon1.setClickable(true);
-        polygon1.setFillColor(255);
+        //polygon1.setFillColor(255);
 
 
 
         mMap.setOnPolygonClickListener(new GoogleMap.OnPolygonClickListener() {
             @Override
             public void onPolygonClick(Polygon polygon) {
-                Toast.makeText(getApplicationContext(), "TEXT HERE" + polygon.toString()
+                /*Toast.makeText(getApplicationContext(), "TEXT HERE" + polygon.toString()
                         , Toast.LENGTH_SHORT)
-                        .show();
+                        .show();*/
+                DialogFragment fragment = null;
 
+                fragment = new CustomDialogFragment();
 
+                if (fragment != null)
+                    fragment.show(getSupportFragmentManager(), "launch");
             }
         });
 
