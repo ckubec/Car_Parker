@@ -16,6 +16,18 @@
     <string name="aboutButton">About</string>
     <string name="parkingListButton">List All Spots</string>
 
+    <string name="CREATE_PARKING_SQL">
+        CREATE TABLE IF NOT EXISTS Parking
+        (id TEXT PRIMARY KEY, spots TEXT,
+        spotsTaken TEXT, address TEXT)
+    </string>
+
+    <string name="sign">Sign In</string>
+
+    <string name="DROP_PARKING_SQL">
+        DROP TABLE IF EXISTS Parking
+    </string>
+
 
     <string name="logout">Logout</string>
     <string name="title_activity_find">Map</string>

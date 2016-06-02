@@ -1,7 +1,6 @@
 package ckubec.tacoma.uw.edu.carparker;
 
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
@@ -15,7 +14,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
-
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -25,6 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ckubec.tacoma.uw.edu.carparker.model.Parking;
+import data.ParkingDB;
 
 /**
  * A fragment representing a list of Items.
@@ -33,22 +32,20 @@ import ckubec.tacoma.uw.edu.carparker.model.Parking;
  * interface.
  */
 public class AllSpacesFragment extends Fragment {
+    private ParkingDB mParkingDB;
+    private List<Parking> mParkingList;
 
-    private static final String ARG_COLUMN_COUNT = "column-count";
+
+    // TODO: Customize parameters
     private int mColumnCount = 1;
-    private OnListFragmentInteractionListener mListener;
-    public String COURSE_URL;
-
-    private List<Parking> mParkingList = new ArrayList<Parking>();
-
+    private static final String COURSE_URL
+            = "http://cssgate.insttech.washington.edu/~ckubec/Android/test.php?cmd=courses";
     private RecyclerView mRecyclerView;
 
+
+    private OnListFragmentInteractionListener mListener;
+
     private class DownloadCoursesTask extends AsyncTask<String, Void, String> {
-        /**
-         * This is doInBackground method.
-         * @param urls
-         * @return responce
-         */
         @Override
         protected String doInBackground(String... urls) {
             String response = "";
@@ -67,10 +64,9 @@ public class AllSpacesFragment extends Fragment {
                     }
 
                 } catch (Exception e) {
-                    response = "Unable to download the list of parking lots, Reason: "
+                    response = "Unable to download the list of courses, Reason: "
                             + e.getMessage();
-                }
-                finally {
+                } finally {
                     if (urlConnection != null)
                         urlConnection.disconnect();
                 }
@@ -78,22 +74,69 @@ public class AllSpacesFragment extends Fragment {
             return response;
         }
 
-        /**
-         * This is onPostExecute method.
-         * @param result
-         */
-        @Override
         protected void onPostExecute(String result) {
+            // Something wrong with the network or the URL.
+            if (result.startsWith("Unable to")) {
+                Toast.makeText(getActivity().getApplicationContext(), result, Toast.LENGTH_LONG)
+                        .show();
+                return;
+            }
 
-            mParkingList = new ArrayList<Parking>();
-            result = Parking.parseParkingJSON(result, mParkingList);
+            List<Parking> courseList = new ArrayList<Parking>();
+            result = Parking.parseParkingJSON(result, courseList);
+            // Something wrong with the JSON returned.
+            if (result != null) {
+                Toast.makeText(getActivity().getApplicationContext(), result, Toast.LENGTH_LONG)
+                        .show();
+                return;
+            }
+
             // Everything is good, show the list of courses.
-            if (!mParkingList.isEmpty())
-            {
-                mRecyclerView.setAdapter(new MyAllSpacesRecyclerViewAdapter (mParkingList, mListener));
+            if (!courseList.isEmpty()) {
+                mRecyclerView.setAdapter(new MyAllSpacesRecyclerViewAdapter(courseList, mListener));
+            }
+
+            // Everything is good, show the list of courses.
+            if (!mParkingList.isEmpty()) {
+                mRecyclerView.setAdapter(new MyAllSpacesRecyclerViewAdapter(mParkingList, mListener));
+
+                if (mParkingDB == null) {
+                    mParkingDB = new ParkingDB(getActivity());
+                }
+
+                // Delete old data so that you can refresh the local
+                // database with the network data.
+                mParkingDB.deleteParking();
+
+                // Also, add to the local database
+                for (int i=0; i<mParkingList.size(); i++) {
+                    Parking park = mParkingList.get(i);
+                    mParkingDB.insertParking(
+                            park.getNumSpots(),
+                            park.getNumSpotsTaken(),
+                            park.getParkingLocation());
+                }
+            }
+            // Everything is good, show the list of courses.
+            if (!mParkingList.isEmpty()) {
+                mRecyclerView.setAdapter(new MyAllSpacesRecyclerViewAdapter(mParkingList, mListener));
+
+                if (mParkingDB == null) {
+                    mParkingDB = new ParkingDB(getActivity());
+                }
+
+                // Also, add to the local database
+                for (int i=0; i<mParkingList.size(); i++) {
+                    Parking park = mParkingList.get(i);
+                    mParkingDB.insertParking(
+                            park.getNumSpots(),
+                            park.getNumSpotsTaken(),
+                            park.getParkingLocation());
+                }
             }
         }
     }
+
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -102,29 +145,40 @@ public class AllSpacesFragment extends Fragment {
     public AllSpacesFragment() {
     }
 
-    // TODO: Customize parameter initialization
-    @SuppressWarnings("unused")
-    public static AllSpacesFragment newInstance(int columnCount) {
-        AllSpacesFragment fragment = new AllSpacesFragment();
-        Bundle args = new Bundle();
-        args.putInt(ARG_COLUMN_COUNT, columnCount);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        if (getArguments() != null) {
-            mColumnCount = getArguments().getInt(ARG_COLUMN_COUNT);
-        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_allspaces_list, container, false);
+
+        //Read from file and show the text
+
+        try {
+            InputStream inputStream = getActivity().openFileInput(
+                    getString(R.string.LOGIN_FILE));
+
+            if ( inputStream != null ) {
+                InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
+                BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+                String receiveString = "";
+                StringBuilder stringBuilder = new StringBuilder();
+
+                while ((receiveString = bufferedReader.readLine()) != null) {
+                    stringBuilder.append(receiveString);
+                }
+
+                inputStream.close();
+                Toast.makeText(getActivity(), stringBuilder.toString(), Toast.LENGTH_SHORT)
+                        .show();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         // Set the adapter
         if (view instanceof RecyclerView) {
@@ -135,41 +189,39 @@ public class AllSpacesFragment extends Fragment {
             } else {
                 mRecyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            /*
-             *_____________________________________________________________________________
-             * Maybe delete this later if there are problems.
-             */
-            mRecyclerView.setAdapter(new MyAllSpacesRecyclerViewAdapter(mParkingList, mListener));
 
-            SharedPreferences prefs = this.getActivity().getSharedPreferences(getString(R.string.LOGIN_PREFS), Context.MODE_PRIVATE);
+        }
 
+        FloatingActionButton floatingActionButton = (FloatingActionButton)
+                getActivity().findViewById(R.id.fab);
+        floatingActionButton.show();
 
-            COURSE_URL = "http://cssgate.insttech.washington.edu/ckubec/listings.php";
-
+        ConnectivityManager connMgr = (ConnectivityManager)
+                getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
+        if (networkInfo != null && networkInfo.isConnected()) {
             DownloadCoursesTask task = new DownloadCoursesTask();
             task.execute(new String[]{COURSE_URL});
-
-            FloatingActionButton floatingActionButton = (FloatingActionButton)
-                    getActivity().findViewById(R.id.fab);
-            floatingActionButton.show();
-
-            ConnectivityManager connMgr = (ConnectivityManager)
-                    getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
-            NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
-            if (networkInfo != null && networkInfo.isConnected()) {
-                task = new DownloadCoursesTask();
-                task.execute(new String[]{COURSE_URL});
-            }
-            else {
-                Toast.makeText(view.getContext(),
-                        "No network connection available. Displaying locally stored data",
-                        Toast.LENGTH_LONG) .show();
-
-                mRecyclerView.setAdapter(new MyAllSpacesRecyclerViewAdapter (mParkingList, mListener));
-            }
         }
+        else {
+            Toast.makeText(view.getContext(),
+                    "No network connection available. Cannot display courses",
+                    Toast.LENGTH_SHORT) .show();
+
+        }
+
+        if (mParkingDB == null) {
+            mParkingDB = new ParkingDB(getActivity());
+        }
+        if (mParkingList == null) {
+            mParkingList = mParkingDB.getParking();
+        }
+        mRecyclerView.setAdapter(new MyAllSpacesRecyclerViewAdapter(mParkingList, mListener));
+
         return view;
     }
+
+
 
 
     @Override

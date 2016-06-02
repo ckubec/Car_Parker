@@ -10,4 +10,7 @@
     android:layout_marginRight="16dp"
     app:layoutManager="LinearLayoutManager"
     tools:context="ckubec.tacoma.uw.edu.carparker.AllSpacesFragment"
-    tools:listitem="@layout/fragment_allspaces" />
+    tools:listitem="@layout/fragment_allspaces"
+    android:background="#616161" />
+
+
