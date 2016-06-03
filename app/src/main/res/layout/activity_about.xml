@@ -6,17 +6,6 @@
     android:orientation="vertical"
     android:background="#616161">
 
-<shape xmlns:android="http://schemas.android.com/apk/res/android" android:id="@+id/listview_background_shape">
-    <stroke android:width="2dp" android:color="#ff207d94" />
-    <padding android:left="2dp"
-        android:top="2dp"
-        android:right="2dp"
-        android:bottom="2dp" />
-    <corners android:radius="5dp" />
-    <solid android:color="#ffffffff" />
-</shape>
-
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

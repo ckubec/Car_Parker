@@ -5,6 +5,8 @@ import junit.framework.TestCase;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.ArrayList;
+
 import ckubec.tacoma.uw.edu.carparker.model.Parking;
 
 /**
@@ -16,7 +18,7 @@ public class ParkingTest extends TestCase {
 
     @Before
     public void setUp() throws Exception {
-        park = new Parking(null, "100", "Street Street", "23");
+        park = new Parking("fragment", "spots", "address", "spotsTaken");
     }
 
     @Test
@@ -55,6 +57,16 @@ public class ParkingTest extends TestCase {
     }
 
     @Test
+    public void testSetAddressToNull() {
+        try {
+            park.setParkingLocation(null);
+            fail("Address can't be set to null");
+        }
+        catch (IllegalArgumentException e) {}
+    }
+
+
+    @Test
     public void testGetNumberOfSpots()
     {
         assertEquals("100", park.getNumSpots());
@@ -78,5 +90,14 @@ public class ParkingTest extends TestCase {
         assertEquals(park.getAllSpacesFragment(), park.getAllSpacesFragment());
     }
 
+    @Test
+    public void testParseParkingJSON() {
+        String parkingJSON = "[{\"fragment\":\"fragment\",\"spots\":\"spots\",\"address\":\"address\"," +
+                "\"spotsTaken\":\"spotsTaken\"}]";
+
+        String message =  park.parseParkingJSON(parkingJSON, new ArrayList<Parking>());
+
+        assertTrue("JSON With Valid String", message == null);
+    }
 
 }
