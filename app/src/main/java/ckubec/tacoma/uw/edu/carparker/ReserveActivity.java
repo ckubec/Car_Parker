@@ -74,4 +74,5 @@ public class ReserveActivity extends FragmentActivity implements OnMapReadyCallb
         startActivity(i);
         finish();
     }
+
 }

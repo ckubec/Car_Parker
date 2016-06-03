@@ -17,7 +17,9 @@ import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
+import android.telephony.SmsManager;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdate;
@@ -43,6 +45,8 @@ import java.util.ListIterator;
 public class FindActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
+    public double locationX;
+    public double locationY;
 
     @Override
     /**
@@ -92,7 +96,10 @@ public class FindActivity extends FragmentActivity implements OnMapReadyCallback
                 .build();
 
         // Add a marker in Tacoma and move the camera
-        LatLng tacoma = new LatLng(47.2447187, -122.43925539999998);//The Swiss
+        //These two doubles are for the SMS thing. If something breaks then remove this.
+        double locationX = 47.2447187;
+        double locationY = -122.43925539999998;
+        LatLng tacoma = new LatLng(locationX, locationY);//The Swiss
 
         // Instantiates a new Polygon object and adds points to define a rectangle
         PolygonOptions rectOptions = new PolygonOptions()
@@ -239,4 +246,34 @@ public class FindActivity extends FragmentActivity implements OnMapReadyCallback
         finish();
     }
 
+    public double getLocationX()
+    {
+        return locationX;
+    }
+
+    public double getLocationY()
+    {
+        return locationY;
+    }
+
+    protected void sendSMS() {
+
+        EditText destination;
+        destination = (EditText) findViewById(R.id.toPhoneNumberET);
+
+
+        String toPhoneNumber = destination.getText().toString();
+        String smsMessage = "These are the coordinates I've parked in using the Car Parker App: " + getLocationX() + ", " + getLocationY();
+        try {
+            SmsManager smsManager = SmsManager.getDefault();
+            smsManager.sendTextMessage(toPhoneNumber, null, smsMessage, null, null);
+            Toast.makeText(getApplicationContext(), "SMS sent.",
+                    Toast.LENGTH_LONG).show();
+        } catch (Exception e) {
+            Toast.makeText(getApplicationContext(),
+                    "Sending SMS failed." + e.getMessage(),
+                    Toast.LENGTH_LONG).show();
+            e.printStackTrace();
+        }
+    }
 }

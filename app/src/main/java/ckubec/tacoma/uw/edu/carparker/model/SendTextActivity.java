@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import ckubec.tacoma.uw.edu.carparker.FindActivity;
 import ckubec.tacoma.uw.edu.carparker.Manifest;
 import ckubec.tacoma.uw.edu.carparker.R;
 
@@ -17,6 +18,7 @@ public class SendTextActivity extends Activity {
     Button sendText;
     EditText destination;
     EditText msgText;
+    FindActivity find = new FindActivity();
 
 
     @Override
@@ -41,7 +43,7 @@ public class SendTextActivity extends Activity {
     protected void sendSMS() {
 
         String toPhoneNumber = destination.getText().toString();
-        String smsMessage = msgText.getText().toString();
+        String smsMessage = "These are the coordinates I've parked in using the Car Parker App: " + find.getLocationX() + ", " + find.getLocationY();
         try {
             SmsManager smsManager = SmsManager.getDefault();
             smsManager.sendTextMessage(toPhoneNumber, null, smsMessage, null, null);

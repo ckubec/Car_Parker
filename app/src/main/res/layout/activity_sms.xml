@@ -26,7 +26,6 @@
         android:id="@+id/smsMessageET"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Check out our app, Car Parker!"
         android:inputType="textMultiLine"/>
 
     <Button android:id="@+id/sendTextBtn"

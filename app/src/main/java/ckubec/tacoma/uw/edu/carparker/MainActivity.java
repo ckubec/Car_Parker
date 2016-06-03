@@ -85,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * This method is for when you click the Settings on the menu item.
-     * @param mItem the menu item that is clicked.
+     * @param //mItem the menu item that is clicked.
      */
     public void settingsMenu(View view)
     {
@@ -96,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * This method is for when you click the Settings on the menu item.
-     * @param mItem the menu item that is clicked.
+     * @param //mItem the menu item that is clicked.
      */
     public void aboutScreen(View view)
     {
@@ -144,10 +144,5 @@ public class MainActivity extends AppCompatActivity {
         //finish();
     }
 
-    public void ListAllSpaces(View view)
-    {
-        Intent i = new Intent(this, AllSpacesActivity.class);
-        startActivity(i);
-        //finish();
-    }
+//
 }
