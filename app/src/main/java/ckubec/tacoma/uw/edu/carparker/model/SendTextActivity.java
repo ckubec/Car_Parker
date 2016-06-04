@@ -8,9 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import ckubec.tacoma.uw.edu.carparker.FindActivity;
-import ckubec.tacoma.uw.edu.carparker.Manifest;
 import ckubec.tacoma.uw.edu.carparker.R;
 
 public class SendTextActivity extends Activity {
@@ -49,11 +47,13 @@ public class SendTextActivity extends Activity {
             smsManager.sendTextMessage(toPhoneNumber, null, smsMessage, null, null);
             Toast.makeText(getApplicationContext(), "SMS sent.",
                     Toast.LENGTH_LONG).show();
+            finish();
         } catch (Exception e) {
             Toast.makeText(getApplicationContext(),
                     "Sending SMS failed." + e.getMessage(),
                     Toast.LENGTH_LONG).show();
             e.printStackTrace();
         }
+
     }
 }

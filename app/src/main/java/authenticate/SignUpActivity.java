@@ -114,13 +114,13 @@ public class SignUpActivity extends AppCompatActivity {
             }
             else {
                 complete(user);
-                Toast.makeText(getApplicationContext(), "HELP Me Obi Wan1", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(), "HELP Me Obi Wan1", Toast.LENGTH_SHORT).show();
             }
         }
     }
 
     private void complete(String theUser) {
-        Toast.makeText(getApplicationContext(), "HELP Me Obi Wan2", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getApplicationContext(), "HELP Me Obi Wan2", Toast.LENGTH_SHORT).show();
         SharedPreferences sharedPreferences =
                 getSharedPreferences(getString(R.string.LOGIN_PREFS), Context.MODE_PRIVATE);
         sharedPreferences.edit().putString(getString(R.string.login), theUser)

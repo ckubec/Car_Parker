@@ -9,7 +9,9 @@
 
 package ckubec.tacoma.uw.edu.carparker;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -39,6 +41,10 @@ public class FreeActivity extends FragmentActivity  {
 
     public void yes(View view){
         Toast.makeText(getApplicationContext(), "You have successfully freed your parking spot.", Toast.LENGTH_SHORT).show();
+        SharedPreferences sharedPreferences = getSharedPreferences(getString(R.string.spot)
+                , Context.MODE_PRIVATE);
+        sharedPreferences.edit().putBoolean("parked", false).apply();
+
         finish();
     }
 

@@ -1,3 +1,383 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" />
+<items version="2" >
 
+    <item
+        jar="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-safetynet/9.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="c11cf7a7a6e5adf8fa564303a11dbc351fc11b7c">
+        <dex dex="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-safetynet-9.0.0_c9a9b46efb0c6d55e15e6151638436f2929e9b70.jar" />
+    </item>
+    <item
+        jar="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/exploded-aar/com.google.firebase/firebase-messaging/9.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="005786793d72c6deacbbbfd38177ed58e1aa6653">
+        <dex dex="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/pre-dexed/debug/com.google.firebase-firebase-messaging-9.0.0_0a9cda89430512900641c849d6d1647cb4c62540.jar" />
+    </item>
+    <item
+        jar="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appindexing/9.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="4431efe5d0f67fab36a698dde725946b33a6bf4a">
+        <dex dex="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-appindexing-9.0.0_6bc517850887271e2627d769645ffd41e28ef110.jar" />
+    </item>
+    <item
+        jar="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/exploded-aar/com.google.firebase/firebase-iid/9.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="ea4b54dcbfe5ac05efb0a314105f07258118d3a7">
+        <dex dex="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/pre-dexed/debug/com.google.firebase-firebase-iid-9.0.0_233585ebab51ec13c63610fd7bcb8d6738f89ca1.jar" />
+    </item>
+    <item
+        jar="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-plus/9.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="817b9101192f2fd6dc0fd8cd522d8f4a1a75fcdc">
+        <dex dex="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-plus-9.0.0_c88195709ed06a543a1b6dee04e98450a63f8d53.jar" />
+    </item>
+    <item
+        jar="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wallet/9.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="d7002ed92a3c46c6a89a786877ecf7978a4f0459">
+        <dex dex="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-wallet-9.0.0_ed242f4057a6e1382d25a8243f6b18f43588e9af.jar" />
+    </item>
+    <item
+        jar="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/exploded-aar/com.android.support/design/23.4.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="5326d9a850d491714fef8cbfaa9ea3416f0bf0d2">
+        <dex dex="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/pre-dexed/debug/com.android.support-design-23.4.0_4420448e69f3b1ad91c174d1b9ea214c1fd49361.jar" />
+    </item>
+    <item
+        jar="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/exploded-aar/com.google.firebase/firebase-crash/9.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="7e467a973b749c6390a5991c9a8edbde96fc10c9">
+        <dex dex="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/pre-dexed/debug/com.google.firebase-firebase-crash-9.0.0_5cecc456c2cf18b9ce3c91a6e9c7ed9badc82b36.jar" />
+    </item>
+    <item
+        jar="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="6f65c144283b31b4b9a70e6e7aa4c4a1c897d4b8">
+        <dex dex="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-base-9.0.0_477778ec5588a0d40750365404f889117a2491d2.jar" />
+    </item>
+    <item
+        jar="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.4.0/jars/libs/internal_impl-23.4.0.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="ea3c07504d2c8f4b13aa17c45c1b68ed9c1c3674">
+        <dex dex="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/pre-dexed/debug/internal_impl-23.4.0_6c3659639aa0133aadb60eba7e4f75cd17fe459d.jar" />
+    </item>
+    <item
+        jar="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/exploded-aar/com.google.firebase/firebase-config/9.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="ebfde1a055aea400df77584a68aa60609f618bed">
+        <dex dex="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/pre-dexed/debug/com.google.firebase-firebase-config-9.0.0_172c400e3889899f495618859af3203cc4a523f8.jar" />
+    </item>
+    <item
+        jar="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics-impl/9.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="0dc8ab07eeceda5e99b305c8069765056b6e5c9d">
+        <dex dex="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/pre-dexed/debug/com.google.firebase-firebase-analytics-impl-9.0.0_b89da7ff828cf7ae7baa7b7ff05299a76c077b3e.jar" />
+    </item>
+    <item
+        jar="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-auth-base/9.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="7a23185c9b1c100e7d1a32275017e4712e31c796">
+        <dex dex="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-auth-base-9.0.0_c265e85619c6cfaa228ebb010d73d20015ea486d.jar" />
+    </item>
+    <item
+        jar="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/9.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="cc178928721f3222b3b06bdfbd9497378ccb9792">
+        <dex dex="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-basement-9.0.0_03933419d9459be0ac40edd0ea7ef738617b7b55.jar" />
+    </item>
+    <item
+        jar="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-iid/9.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="379d1834afa3c08f43be23a23b103053537b65b5">
+        <dex dex="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-iid-9.0.0_361fac43413fbf1a3560f44aa58665fccd2b8f82.jar" />
+    </item>
+    <item
+        jar="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-games/9.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="2c5bc0ebbe69c9fab587c2216b36ec44ab8f0704">
+        <dex dex="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-games-9.0.0_92404850daff9e078f4816a58ee49df8f64b5ffe.jar" />
+    </item>
+    <item
+        jar="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/exploded-aar/com.google.firebase/firebase-storage-common/9.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="ed16ff19f0a9515604a0f08104ca0317b82e29e3">
+        <dex dex="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/pre-dexed/debug/com.google.firebase-firebase-storage-common-9.0.0_27f27124fafad8013210c2a10c562b49a6fd7b87.jar" />
+    </item>
+    <item
+        jar="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-auth/9.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="7da84426d876216ed4cdddd85e739be5ecabdd04">
+        <dex dex="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-auth-9.0.0_b09e4880d17f6e7bbea707cfde338e4b95b7eac4.jar" />
+    </item>
+    <item
+        jar="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-fitness/9.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="2f7bd8cc7519d5231aa8d2ae8e905d3f602bd491">
+        <dex dex="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-fitness-9.0.0_99ce58616a9d620ecfd33523462ec3fd8e006851.jar" />
+    </item>
+    <item
+        jar="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/exploded-aar/com.google.firebase/firebase-database-connection/9.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="ef5c5c2afbd174d55cf1cfcac7d0346cbc4c1322">
+        <dex dex="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/pre-dexed/debug/com.google.firebase-firebase-database-connection-9.0.0_5510161b5dfc8848ffc1e48dded0632757e10a04.jar" />
+    </item>
+    <item
+        jar="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/exploded-aar/com.google.firebase/firebase-auth-common/9.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="5f0f6913a208a126269aaa68004ed0329a832c5b">
+        <dex dex="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/pre-dexed/debug/com.google.firebase-firebase-auth-common-9.0.0_2755b10e271372826dedca424ce20fd257caf91e.jar" />
+    </item>
+    <item
+        jar="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-analytics-impl/9.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="373cd65725af2781d100ddc193c7d3f14464a774">
+        <dex dex="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-analytics-impl-9.0.0_0f27d981cf0f41f5a67597e15a068b6cb89297e9.jar" />
+    </item>
+    <item
+        jar="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-analytics/9.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="b8bedab61b3b5238cd9a07d3b04449d7fecdbc3b">
+        <dex dex="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-analytics-9.0.0_6f0c11adc27b7c4faf9d2ac738d3c6eb3b0a918b.jar" />
+    </item>
+    <item
+        jar="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wearable/9.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="184428c29b2a4b220cd44284d515db5d8cb5fc76">
+        <dex dex="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-wearable-9.0.0_aa4cdb837e786efb8527119c403fb29f2ea19890.jar" />
+    </item>
+    <item
+        jar="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="d358b3dd49a7c67844622dcbc9cf4339e13952ce">
+        <dex dex="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/pre-dexed/debug/com.android.support-mediarouter-v7-23.0.0_195648162a7e1064faec98010aaf68db7065119e.jar" />
+    </item>
+    <item
+        jar="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/exploded-aar/com.google.firebase/firebase-storage/9.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="733964f04c339e425439545b1d172c23b53f8c13">
+        <dex dex="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/pre-dexed/debug/com.google.firebase-firebase-storage-9.0.0_cbd21a461912cb614b3ecba488d9ba2d9039fa8e.jar" />
+    </item>
+    <item
+        jar="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-nearby/9.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="0facc6fc326f2406f4bb9b02f442994c5ce6a403">
+        <dex dex="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-nearby-9.0.0_48eaccf0db7f874649e0d94d94c6893e0f847063.jar" />
+    </item>
+    <item
+        jar="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-location/9.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="59cca9b91688dc2467754d36793b3d23bebd21a9">
+        <dex dex="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-location-9.0.0_768dd551240fcfe32263766457c7c6690dc3da88.jar" />
+    </item>
+    <item
+        jar="/Users/ckubec/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/23.4.0/support-annotations-23.4.0.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="ffbe55fdb2bb456b1485831706a9eac3300bb6b8">
+        <dex dex="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/pre-dexed/debug/support-annotations-23.4.0_bce1e4d34f73533e6b3ba28240583e03e3f58ebe.jar" />
+    </item>
+    <item
+        jar="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads-lite/9.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="79e4b41db41d4dbbf364c7bd6aaeee5b876c9d8b">
+        <dex dex="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-ads-lite-9.0.0_c09f0cde49a10696ab772f83d38162837e2b573d.jar" />
+    </item>
+    <item
+        jar="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tagmanager-api/9.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="69472e334350cafbf442776da05c9a04955252fb">
+        <dex dex="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-tagmanager-api-9.0.0_f992c0c9c69c5cf18ba8ada7bbb7feb8596ae07d.jar" />
+    </item>
+    <item
+        jar="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/exploded-aar/com.google.firebase/firebase-database/9.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="32a5a566ae197603d0bed3e6d1d275f6a771564e">
+        <dex dex="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/pre-dexed/debug/com.google.firebase-firebase-database-9.0.0_b17515e804a7fa5be78a449dbe4aa4aac6313862.jar" />
+    </item>
+    <item
+        jar="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-drive/9.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="294d49a66cc1238d9f7fd352136a45622fa98c0f">
+        <dex dex="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-drive-9.0.0_9b9c0d73bdf07c1d72fd53927c6b2a272266eda1.jar" />
+    </item>
+    <item
+        jar="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/jars/libs/internal_impl-23.0.0.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="03d38bb042efe3e5ce27ba66b729a9523c36d8fe">
+        <dex dex="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/pre-dexed/debug/internal_impl-23.0.0_5efda7b9911eced650755e8fe38efd3ce41312fc.jar" />
+    </item>
+    <item
+        jar="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-gcm/9.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="4caf75b2cfb7ec6e80a57d0ee64fc102ad3578b8">
+        <dex dex="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-gcm-9.0.0_48dc31ea113a57e7d1f613167c2060439d729e99.jar" />
+    </item>
+    <item
+        jar="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast/9.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="e595f98f8c525201dccd119f43ad1ddacd4c48d6">
+        <dex dex="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-cast-9.0.0_68ba46813c8da2590c9a50db3e0647fa024cbd42.jar" />
+    </item>
+    <item
+        jar="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.4.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="ec75036c3c52e451d0cde50a5aedaf5fd32354a0">
+        <dex dex="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/pre-dexed/debug/com.android.support-recyclerview-v7-23.4.0_52b8c9938baabe86d6a23824a3984909c2554168.jar" />
+    </item>
+    <item
+        jar="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="548f06de403a9409f00554b3ee12a9fdea0e236c">
+        <dex dex="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-23.4.0_59d805cc7114f197fdcea5736101e235a15b1e10.jar" />
+    </item>
+    <item
+        jar="/Users/ckubec/Desktop/Car_Parker-II/app/libs/robotium-solo-5.5.4.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="67a5a3ec97886f96689c14b34d3ae7550d955a65">
+        <dex dex="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/pre-dexed/debug/robotium-solo-5.5.4_91dab909bf8c8c08cef8df82131ec963c4880c85.jar" />
+    </item>
+    <item
+        jar="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/9.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="2cb29455028e92e024bbad0d41c6ec772f2433d1">
+        <dex dex="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-ads-9.0.0_1ca36b6f88719a90064d7bc7df448f7b04ac17b9.jar" />
+    </item>
+    <item
+        jar="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/23.4.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="de4db3785756bfb0915a9f59a9b3f2fea7407be4">
+        <dex dex="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/pre-dexed/debug/com.android.support-animated-vector-drawable-23.4.0_e8f3a155f792ea6f47815f9fab2dce7bd247b137.jar" />
+    </item>
+    <item
+        jar="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tasks/9.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="1941832901fc4e7a93300b53762e9f65d7650b99">
+        <dex dex="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-tasks-9.0.0_150f377dfc6907115b05363f316b6ff5e8a36045.jar" />
+    </item>
+    <item
+        jar="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/23.4.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="c2c594cace5d83a3227b2b6e658ecbfd586d3ed9">
+        <dex dex="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/pre-dexed/debug/com.android.support-support-vector-drawable-23.4.0_cae411054c1b56d8a761618bd481b3ae832fcffe.jar" />
+    </item>
+    <item
+        jar="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/9.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="4ef8ab5fee042023018249474bc93bd4b2b9c17e">
+        <dex dex="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/pre-dexed/debug/com.google.firebase-firebase-analytics-9.0.0_10fbcc3125b40524e668e230ac2f4a9f09d74b9c.jar" />
+    </item>
+    <item
+        jar="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appinvite/9.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="d96f9f3ef66494d1231304cafd28c962dda80dea">
+        <dex dex="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-appinvite-9.0.0_6d1735cf1672094b907601892913594d700ed9ba.jar" />
+    </item>
+    <item
+        jar="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/exploded-aar/com.google.firebase/firebase-auth-module/9.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="24536a7b97926a9c155c88425da6875adeb11b51">
+        <dex dex="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/pre-dexed/debug/com.google.firebase-firebase-auth-module-9.0.0_6dfdf3e453fb88082ea0a83606e308d7eee2b632.jar" />
+    </item>
+    <item
+        jar="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-identity/9.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="5289e799a43a64c4137d109bf992e10a2f952aa3">
+        <dex dex="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-identity-9.0.0_e681a27e0a4bbd3fb35eeb407ac146939b4d4d65.jar" />
+    </item>
+    <item
+        jar="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-panorama/9.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="67a7d712de3e7d025f4efdcec1da183f764bdbab">
+        <dex dex="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-panorama-9.0.0_df9c322654cf522fcab1f75955eeef906560cd30.jar" />
+    </item>
+    <item
+        jar="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/9.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="a819aae4f0c711e50b4fd633922a3c1a176cb51e">
+        <dex dex="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-maps-9.0.0_92658b714f9f92da1800a66dace9bd195f18768c.jar" />
+    </item>
+    <item
+        jar="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/exploded-aar/com.google.firebase/firebase-auth/9.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="70ddab48594608953b20164b82f1f890a9a8174a">
+        <dex dex="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/pre-dexed/debug/com.google.firebase-firebase-auth-9.0.0_552f7b5f49a82c1510a200635c84f19757ce39d5.jar" />
+    </item>
+    <item
+        jar="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/exploded-aar/com.google.firebase/firebase-common/9.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="42df48c7305b08b14fa0e84561091b0c24d70d26">
+        <dex dex="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/pre-dexed/debug/com.google.firebase-firebase-common-9.0.0_a2a3aeb458a90b909e2a6753c266f049a85dcc25.jar" />
+    </item>
+    <item
+        jar="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tagmanager/9.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="8126914f5bc372a33e27ea90f02412c32468ce8a">
+        <dex dex="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-tagmanager-9.0.0_1e641a20227a9993511cbe98a680889eb2e77048.jar" />
+    </item>
+    <item
+        jar="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-vision/9.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="f4e85eafa876cd7d7641244867dac3f88d71e866">
+        <dex dex="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-vision-9.0.0_240460a4e41bc6bf7dc7f518bed7617b58d462bf.jar" />
+    </item>
+    <item
+        jar="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.4.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="67bd36ee9340ec7c254108936ad16b24bed160cc">
+        <dex dex="/Users/ckubec/Desktop/Car_Parker-II/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-23.4.0_f42f74cc52ef8cab206fd07676f762206c5739de.jar" />
+    </item>
+
+</items>

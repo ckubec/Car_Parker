@@ -9,21 +9,16 @@
 
 package ckubec.tacoma.uw.edu.carparker;
 
-import android.content.Intent;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
-
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -31,7 +26,6 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
-import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.Polygon;
 import com.google.android.gms.maps.model.PolygonOptions;
 
@@ -53,16 +47,6 @@ public class ReserveActivity extends FragmentActivity  implements OnMapReadyCall
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
     }
-
-    /*@Override
-    public void onBackPressed()
-    {
-        /*if ( ! getIntent().getExtras().getBoolean())
-            moveTaskToBack(true); // exist app
-        else
-        finish();
-    }*/
-
 
     /**
      * Manipulates the map once available.
@@ -98,14 +82,14 @@ public class ReserveActivity extends FragmentActivity  implements OnMapReadyCall
                         new LatLng(47.243071, -122.437649),
                         new LatLng(47.243012, -122.438464));
         rectOptions.fillColor(Color.parseColor("#905DFC0A"));
-        rectOptions.strokeColor(Color.BLACK);
+        rectOptions.strokeColor(Color.RED);
 
-        PolygonOptions rectOptions2 = new PolygonOptions()
+        /*PolygonOptions rectOptions2 = new PolygonOptions()
                 .add(new LatLng(47.244032, -122.438185),
                         new LatLng(47.24409, -122.437445),
                         new LatLng(47.243012, -122.438464),
                         new LatLng(47.243071, -122.437649));
-        rectOptions2.strokeColor(Color.BLACK);
+        rectOptions2.strokeColor(Color.BLACK);*/
 
         PolygonOptions rect2 = new PolygonOptions()
                 .add(new LatLng(47.244352, -122.438979),
@@ -114,6 +98,25 @@ public class ReserveActivity extends FragmentActivity  implements OnMapReadyCall
                         new LatLng(47.242881, -122.439119));
         rect2.fillColor(Color.parseColor("#90FFFF00"));
         rect2.strokeColor(Color.RED);
+
+        SharedPreferences sharedPreferences = getSharedPreferences(getString(R.string.spot)
+                , Context.MODE_PRIVATE);
+        if (!sharedPreferences.getBoolean("parked", false)){
+            rectOptions.strokeColor(Color.RED);
+            rect2.strokeColor(Color.RED);
+        } else {
+            PolygonOptions rectOptions2 = new PolygonOptions()
+                    .add(new LatLng(47.244032, -122.438185),
+                            new LatLng(47.24409, -122.437445),
+                            new LatLng(47.243012, -122.438464),
+                            new LatLng(47.243071, -122.437649));
+            rectOptions2.strokeColor(Color.BLACK);
+            rectOptions.strokeColor(Color.BLACK);
+            mMap.addPolygon(rectOptions2);
+
+            TextView t= (TextView) findViewById(R.id.textSpot);
+            t.setText("You are Currently Parked.");
+        }
 
         PolygonOptions rect3 = new PolygonOptions()
                 .add(new LatLng(60,-150),
@@ -148,22 +151,11 @@ public class ReserveActivity extends FragmentActivity  implements OnMapReadyCall
         PolygonOptions polygonOptions = rect3.addHole(list);
 
 
-
-
-        /*.add(new LatLng(TACOMA.northeast.latitude, TACOMA.southwest.longitude),
-                        new LatLng(TACOMA.northeast.latitude, TACOMA.northeast.longitude),
-                        new LatLng(TACOMA.southwest.latitude, TACOMA.northeast.longitude),
-                        new LatLng(TACOMA.southwest.latitude, TACOMA.southwest.longitude));*/
-
-
-
-
-
-// Get back the mutable Polygon
+        // Get back the mutable Polygon
         final Polygon polygon = mMap.addPolygon(rectOptions);
         Polygon polygon1 = mMap.addPolygon(rect2);
         Polygon polygon2 = mMap.addPolygon(rect3);
-        mMap.addPolygon(rectOptions2);
+        //mMap.addPolygon(rectOptions2);
         mMap.addPolygon(rect4);
         mMap.addPolygon(rect5);
         polygon2.setGeodesic(true);
@@ -177,15 +169,7 @@ public class ReserveActivity extends FragmentActivity  implements OnMapReadyCall
         mMap.setOnPolygonClickListener(new GoogleMap.OnPolygonClickListener() {
             @Override
             public void onPolygonClick(Polygon polygon) {
-                /*Toast.makeText(getApplicationContext(), "TEXT HERE" + polygon.toString()
-                        , Toast.LENGTH_SHORT)
-                        .show();*/
-                /*DialogFragment fragment = null;
 
-                fragment = new CustomDialogFragment();
-
-                if (fragment != null)
-                    fragment.show(getSupportFragmentManager(), "launch");*/
             }
         });
 

@@ -8,10 +8,11 @@
  */
 package ckubec.tacoma.uw.edu.carparker;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
-import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentActivity;
@@ -191,6 +192,12 @@ public class FindActivity extends FragmentActivity implements OnMapReadyCallback
 
                 if (fragment != null)
                     fragment.show(getSupportFragmentManager(), "launch");
+
+                SharedPreferences sharedPreferences = getSharedPreferences(getString(R.string.spot), Context.MODE_PRIVATE);
+
+                sharedPreferences.edit().putBoolean("parked", true).apply();
+
+                sharedPreferences.edit().putInt(getString(R.string.spot), 5).apply();
             }
         });
 

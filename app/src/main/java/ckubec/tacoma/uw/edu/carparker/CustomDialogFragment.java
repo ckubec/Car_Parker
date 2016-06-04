@@ -2,12 +2,15 @@ package ckubec.tacoma.uw.edu.carparker;
 
 
 import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
+import android.widget.EditText;
 import android.widget.Toast;
 
 /**
@@ -83,6 +86,11 @@ public class CustomDialogFragment extends DialogFragment {
 
     public void reserve() {
         Toast.makeText((getActivity()), "You have successfully parked your car.", Toast.LENGTH_SHORT).show();
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences(getString(R.string.spot)
+                , Context.MODE_PRIVATE);
+        sharedPreferences.edit().putBoolean("parked", true).apply();
+
+
         (getActivity()).finish();
     }
 

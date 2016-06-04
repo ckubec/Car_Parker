@@ -12,8 +12,9 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="You have parked in the Craggle Parking Lot. \nIn the spot: "
-            android:textSize="18dp"/>
+            android:text="You are currently not parked. \nIn the spot: "
+            android:textSize="18dp"
+            android:id="@+id/textSpot"/>
 
     </LinearLayout>
 

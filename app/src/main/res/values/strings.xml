@@ -24,6 +24,8 @@
 
     <string name="sign">Sign In</string>
 
+    <string name="spot">spot</string>
+
     <string name="DROP_PARKING_SQL">
         DROP TABLE IF EXISTS Parking
     </string>

@@ -192,9 +192,9 @@ public class AllSpacesFragment extends Fragment {
 
         }
 
-        FloatingActionButton floatingActionButton = (FloatingActionButton)
+        /*FloatingActionButton floatingActionButton = (FloatingActionButton)
                 getActivity().findViewById(R.id.fab);
-        floatingActionButton.show();
+        floatingActionButton.show();*/
 
         ConnectivityManager connMgr = (ConnectivityManager)
                 getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
